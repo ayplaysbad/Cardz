@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/LastFreeCityStyles.uss?fileID=7433451118619660217&amp;guid=44260f1ff216603469dce16f19858cdc&amp;type=3#LastFreeCityStyles" />
+    
+    <ui:VisualElement style="justify-content: center; align-items: center; width: 100%; height: 100%;">
+        <!-- A floating, handwritten-looking label for Tile Health -->
+        <ui:Label name="hp-label" text="30/30 HP" style="-unity-font: url('project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf'); -unity-font-definition: initial; font-size: 16px; color: #EE3333; background-color: rgba(255, 255, 255, 0.85); border-width: 1px; border-color: #333333; border-radius: 3px; padding: 2px 6px; -unity-font-style: bold;" />
+    </ui:VisualElement>
+</ui:UXML>

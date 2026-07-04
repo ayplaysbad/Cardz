@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/LastFreeCityStyles.uss?fileID=7433451118619660217&amp;guid=44260f1ff216603469dce16f19858cdc&amp;type=3#LastFreeCityStyles" />
+    
+    <ui:VisualElement class="card-thumbnail">
+        <!-- Glow outline layer (drawn first/underneath) -->
+        <ui:VisualElement class="card-glow-outline" />
+        
+        <!-- White card body layer (drawn on top, covering the center) -->
+        <ui:VisualElement class="card-body">
+            <ui:VisualElement name="card-art" class="thumbnail-art" />
+            <ui:Label name="card-name" class="thumbnail-title" text="SCRIBBLED RECRUIT" />
+            
+            <!-- Hand Card Stats Bar (HP & AT) -->
+            <ui:VisualElement class="card-stats-bar">
+                <ui:Label name="card-hp" class="card-stat-text hp-text" text="15 HP" />
+                <ui:Label name="card-at" class="card-stat-text at-text" text="5 AT" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="thumbnail-cost-badge">
+                <ui:Label name="card-cost" class="thumbnail-cost-text" text="10" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

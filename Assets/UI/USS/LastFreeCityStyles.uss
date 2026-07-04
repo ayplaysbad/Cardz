@@ -1,0 +1,743 @@
+/* Custom Stylesheet for Last Free City - Inlined for USS Compatibility */
+
+/* Background & Margin Graph Grid */
+.main-canvas {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url("project://database/Assets/UI/Sprites/notebook_ruled_paper_bg.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    padding: 40px;
+}
+
+/* Hide utility */
+.hidden {
+    display: none;
+}
+
+/* HUD Common Transitions */
+.hud-container {
+    transition-property: opacity, translate;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out-back;
+    opacity: 1;
+    translate: 0 0;
+}
+
+/* Slide Top HUD Up & Collapse */
+#top-hud.hud-hidden {
+    opacity: 0;
+    translate: 0 -350px;
+    display: none; /* Collapse layout space so play area expands to full screen height */
+}
+
+/* Slide Bottom HUD Down & Collapse */
+#bottom-hud.hud-hidden {
+    opacity: 0;
+    translate: 0 450px;
+    display: none; /* Collapse layout space so play area expands to full screen height */
+}
+
+/* Top HUD Layout */
+.top-hud-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 140px;
+    padding: 10px;
+    flex-shrink: 0; /* Prevent top HUD from squishing */
+}
+
+/* Stats Badges */
+.stat-badge {
+    flex-direction: row;
+    align-items: center;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.96);
+    border-width: 0px; /* Texture has wobbly sketchy outlines built-in */
+    padding: 14px 24px;
+    min-width: 180px;
+    justify-content: center;
+}
+
+.stat-icon {
+    width: 44px;
+    height: 44px;
+    margin-right: 12px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.stat-label {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 32px;
+    color: #333333;
+    -unity-font-style: bold;
+}
+
+.heart-icon {
+    background-image: url("project://database/Assets/UI/Sprites/heart_doodle_filled.png");
+}
+
+.coin-icon {
+    background-image: url("project://database/Assets/UI/Sprites/coin_doodle.png");
+}
+
+/* Cardboard Style Nameplates */
+.nameplate {
+    background-image: url("project://database/Assets/UI/Sprites/paper_scrap_button.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    padding: 15px 30px;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    flex-shrink: 0;
+}
+
+.nameplate-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 32px;
+    color: #333333;
+    -unity-text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Bottom HUD Control Center */
+.bottom-hud-container {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0; /* Prevent bottom HUD from squishing */
+}
+
+.stats-row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 50px; /* Raised player stability/treasury row up */
+}
+
+.controls-row {
+    flex-direction: row;
+    width: 100%;
+    height: 300px; /* Constraint to 300px to free up space for player HUD and play area */
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/* Deck Container */
+
+
+
+
+/* Hand ScrollView Carousel */
+.hand-carousel-scroll {
+    flex-grow: 1;
+    height: 290px;
+    margin-left: 0px; /* Starts from absolute left edge of screen */
+    margin-right: 15px;
+    margin-bottom: 10px; /* Align baseline */
+    overflow: visible; /* Prevents card top clipping */
+}
+
+/* Ensure inner scroll view viewports don't clip cards when they hover/translate up */
+.hand-carousel-scroll .unity-scroll-view__content-viewport,
+.hand-carousel-scroll .unity-scroll-view__content-container {
+    overflow: visible;
+}
+
+/* Contextual Action Buttons */
+.contextual-bar {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    transition-property: opacity, translate;
+    transition-duration: 0.25s;
+    opacity: 1;
+    translate: 0 0;
+}
+
+.contextual-btn {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 32px;
+    color: #333333;
+    border-width: 4px;
+    border-color: #333333;
+    border-radius: 10px;
+    margin: 0 12px;
+    padding: 16px 32px;
+    background-color: #FFE033;
+}
+
+.contextual-btn:hover {
+    background-color: white;
+}
+
+#deploy-btn {
+    background-color: #33FF57;
+}
+
+#move-btn {
+    background-color: #FFA500;
+}
+
+#attack-btn {
+    background-color: #EE3333;
+    color: white;
+}
+
+/* End Turn Button */
+
+
+
+
+
+
+/* Card Thumbnail Styles (in hand) */
+.card-thumbnail {
+    width: 210px;
+    height: 290px;
+    transition-property: scale, translate;
+    transition-duration: 0.15s;
+}
+
+.card-thumbnail:hover {
+    scale: 1.15;
+    translate: 0 -25px;
+    z-index: 99; /* Force hovered card to draw on top of adjacent cards/HUD items */
+}
+
+.thumbnail-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 13px;
+    color: #333333;
+    -unity-text-align: center;
+    -unity-font-style: bold;
+    white-space: normal;
+    height: 40px;
+    justify-content: center;
+}
+
+.thumbnail-cost-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: #FFE033;
+    border-width: 2px;
+    border-color: #333333;
+    border-radius: 50%;
+    width: 46px; /* Larger Cost Badge Width */
+    height: 46px; /* Larger Cost Badge Height */
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.thumbnail-cost-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 26px; /* Larger Cost text */
+    color: #333333;
+    -unity-font-style: bold;
+}
+
+.thumbnail-art {
+    width: 165px; /* Larger Art Width */
+    height: 150px; /* Larger Art Height */
+    margin: 5px 0;
+    border-width: 2px;
+    border-color: #333333;
+    background-color: #fafafa;
+}
+
+/* Detailed Inspector Overlay */
+.overlay-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    justify-content: center;
+    align-items: center;
+    transition-property: opacity;
+    transition-duration: 0.25s;
+    opacity: 1;
+}
+
+.overlay-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.inspector-card {
+    background-image: url("project://database/Assets/UI/Sprites/postit_note_yellow.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    width: 680px;
+    height: 1000px;
+    padding: 70px;
+    justify-content: space-between;
+}
+
+.inspector-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: transparent;
+    border-width: 0;
+    font-size: 56px;
+    color: #EE3333;
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font-definition: initial;
+}
+
+.inspector-close-btn:hover {
+    scale: 1.2;
+}
+
+.inspector-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 56px;
+    color: #333333;
+    -unity-text-align: center;
+    margin-bottom: 10px;
+}
+
+.inspector-type {
+    -unity-font: url("project://database/Assets/UI/Fonts/IndieFlower-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 30px;
+    color: #0033AA;
+    -unity-text-align: center;
+    -unity-font-style: italic;
+    margin-bottom: 20px;
+}
+
+.inspector-content-row {
+    flex-direction: row;
+    height: 360px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.inspector-art-container {
+    width: 260px;
+    height: 360px;
+    border-width: 4px;
+    border-color: #333333;
+    background-color: white;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.inspector-stats-container {
+    width: 240px;
+    justify-content: space-around;
+}
+
+.inspector-stat-row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.inspector-stat-icon {
+    width: 44px;
+    height: 44px;
+    margin-right: 15px;
+}
+
+.inspector-stat-label {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 36px;
+    color: #333333;
+}
+
+.inspector-ability-container {
+    flex-grow: 1;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-width: 3px;
+    border-color: #333333;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.inspector-ability-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/IndieFlower-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 32px;
+    color: #333333;
+    white-space: normal;
+}
+
+/* Hide horizontal scroller bars completely for gesture swipe or scroll wheel usage */
+.hand-carousel-scroll .unity-scroller {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* ScrollView Content Layout - Align cards to sit on the same bottom baseline */
+.hand-carousel-scroll .unity-scroll-view__content-container {
+    flex-direction: row;
+    align-items: flex-end;
+    padding-bottom: 0px; /* Sits flat on the bottom line */
+    height: 290px; /* Fixed height locks layout flow, preventing shifting when hover scales card */
+    overflow: visible; /* Let hovered card overflow top of list cleanly */
+}
+
+/* Play Area Board Scroll Container */
+.board-scroll-container {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.board-row {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.board-tile {
+    width: 190px;
+    height: 190px;
+    margin: 12px;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px; /* Rounded tile corners */
+    overflow: hidden; /* Clips children to rounded corners */
+    border-width: 3px;
+    border-color: rgba(51, 51, 51, 0.25); /* Soft hand-drawn outline for empty tiles definition */
+}
+
+.enemy-tile {
+    -unity-background-image-tint-color: rgba(235, 110, 110, 0.35); /* Soft red enemy base tint */
+}
+
+.player-tile {
+    -unity-background-image-tint-color: rgba(110, 160, 235, 0.35); /* Soft blue player base tint */
+}
+
+.neutral-tile {
+    -unity-background-image-tint-color: rgba(140, 225, 140, 0.22); /* Light opacity wobbly green grid */
+}
+
+.tile-hp-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 24px;
+    color: #EE3333;
+    -unity-font-style: bold;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-width: 2px;
+    border-color: #333333;
+    border-radius: 4px;
+    padding: 2px 8px;
+}
+
+/* Hide vertical scroller bars inside the board scroll view */
+.board-scroll-container .unity-scroller {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Tile Stats Bar Layouts */
+.tile-stats-bar-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 4px 6px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-top-width: 3px;
+    border-top-color: #333333;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    align-items: center;
+}
+
+.tile-stats-bar-top {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 4px 6px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom-width: 3px;
+    border-bottom-color: #333333;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    align-items: center;
+}
+
+.tile-stat-text-left {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 21px;
+    color: #EE3333; /* Red for HP */
+}
+
+.tile-stat-text-right {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 21px;
+    color: #333333; /* Dark Grey for Attack */
+}
+
+.tile-art-placeholder {
+    flex-grow: 1;
+    width: 100%;
+}
+
+/* Right-side Vertical Stack for Discard, Deck & Done */
+.right-btn-stack {
+    flex-direction: column;
+    width: 150px;
+    height: 290px;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Align baseline */
+    flex-shrink: 0;
+}
+
+.stack-btn {
+    width: 100%;
+    height: 86px;
+    flex-direction: row; /* Lay out number next to the word */
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.discard-pile {
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(135, 135, 135, 0.95); /* Grey wobbly card base */
+}
+
+.deck-pile {
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(60, 110, 200, 0.95); /* Blue wobbly card base */
+}
+
+.done-btn {
+    background-image: url("project://database/Assets/UI/Sprites/paper_scrap_button.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: #ffd27f; /* Sandy cardboard done button */
+    border-width: 0;
+    background-color: transparent;
+    padding: 0;
+}
+
+.stack-btn-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 28px; /* Bigger count number */
+    color: #ffffff;
+    -unity-text-align: center;
+    margin-right: 8px; /* Spacing between count and label */
+}
+
+.done-text {
+    color: #EE3333; /* Red DONE! text */
+    font-size: 26px;
+    rotate: -4deg;
+}
+
+.stack-btn-subtext {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 20px; /* Bigger label text */
+    color: #ffffff;
+    -unity-text-align: center;
+}
+
+/* Selected card highlight */
+.card-thumbnail.highlighted {
+    translate: 0 -25px; /* Stays translated up */
+    scale: 1.15; /* Stays scaled up */
+    z-index: 90; /* Keeps it layered above neighboring cards */
+}
+
+/* Wobbly green glow outline behind the card base texture */
+.card-glow-outline {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: #33FF57; /* Neon green wobbly shadow! */
+    display: none; /* Hidden by default */
+}
+
+/* Activate glow when card has the highlighted class */
+.card-thumbnail.highlighted .card-glow-outline {
+    display: flex;
+}
+
+/* White wobbly card body layer rendered on top of outline */
+.card-body {
+    width: 100%;
+    height: 100%;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    padding: 12px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    overflow: hidden; /* Clips card art inside rounded corners */
+}
+
+/* Hand Card Stats Bar at the bottom of the card body */
+.card-stats-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2px 8px;
+    background-color: rgba(240, 240, 240, 0.7); /* Soft notebook scrap overlay */
+    border-top-width: 2px;
+    border-top-color: #333333;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.card-stat-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 22px;
+}
+
+.hp-text {
+    color: #EE3333; /* Red HP */
+}
+
+.at-text {
+    color: #333333; /* Dark Grey Attack */
+}
+
+/* Centering board content vertically between top and bottom HUDs when fitting, scroll when overflowing */
+.board-scroll-container .unity-scroll-view__content-container {
+    min-height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Zoom & Focus Controls Panel (Positioned Absolute on Left of Bottom HUD) */
+.zoom-panel-right {
+    position: absolute;
+    left: 0px; /* Aligns perfectly with Heart stability badge above it */
+    bottom: 30px;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent; /* Remove outer border box completely */
+    padding: 0px;
+    z-index: 100;
+    transition-property: bottom;
+    transition-duration: 0.35s;
+    transition-timing-function: ease-in-out;
+}
+
+.zoom-btn {
+    width: 58px;
+    height: 58px;
+    margin: 6px 0;
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font-definition: initial;
+    font-size: 36px;
+    color: #333333;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
+    -unity-background-image-tint-color: #ffd27f; /* Sandy yellow tint */
+    background-color: transparent;
+    border-width: 0px; /* Use wobbly texture borders */
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.15s;
+}
+
+.zoom-btn:hover {
+    -unity-background-image-tint-color: #ffffff; /* White hover outline tint */
+    scale: 1.08;
+}
+
+.zoom-btn:active {
+    -unity-background-image-tint-color: #ffd27f;
+    scale: 0.95;
+}
+
+.focus-btn {
+    justify-content: center;
+    align-items: center;
+}
+
+.square-focus-icon {
+    width: 22px;
+    height: 22px;
+    border-width: 3px;
+    border-color: #333333;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+/* Play Area Wrapper - Constrains absolute right zoom panel vertically relative to board height */
+.play-area-wrapper {
+    flex-grow: 1;
+    width: 100%;
+    position: relative; /* Anchors absolute children vertically inside play area limits */
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Enable smooth height collapse and slide transition for card hand controls row */
+.controls-row {
+    transition-property: height, opacity, translate;
+    transition-duration: 0.35s;
+    transition-timing-function: ease-in-out;
+    opacity: 1;
+    translate: 0 0;
+    overflow: visible;
+}
+
+/* When hidden in focus mode, animate collapse downward instead of instantly vanishing */
+.controls-row.hud-hidden {
+    display: flex; /* Keep flex active to allow height and translate transitions to play */
+    height: 0px;
+    opacity: 0;
+    translate: 0 350px;
+    overflow: hidden; /* Clips card thumbnails as the height shrinks down */
+}
+
+/* Swoosh pull-in spring transition for newly deployed board cards (Mac-like ease) */
+.tile-deployed-swoosh {
+    transition-property: scale, translate, opacity, rotate;
+    transition-duration: 0.45s;
+    transition-timing-function: ease-out-back; /* Springy slide & pull bounce */
+    scale: 0.1;
+    opacity: 0;
+    rotate: -12deg;
+    translate: 0 80px; /* Slide up from bottom */
+}
+
+.tile-deployed-active {
+    scale: 1;
+    opacity: 1;
+    rotate: 0deg;
+    translate: 0 0;
+}

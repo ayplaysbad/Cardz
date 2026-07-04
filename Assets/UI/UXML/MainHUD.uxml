@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/LastFreeCityStyles.uss?fileID=7433451118619660217&amp;guid=44260f1ff216603469dce16f19858cdc&amp;type=3#LastFreeCityStyles" />
+    
+    <ui:VisualElement name="main-canvas" class="main-canvas">
+
+        <!-- 1. Top HUD: Enemy Free City Banner -->
+        <ui:VisualElement name="top-hud" class="hud-container top-hud-bar">
+            <!-- Stability Indicator -->
+            <ui:VisualElement class="stat-badge">
+                <ui:VisualElement class="stat-icon heart-icon" />
+                <ui:Label name="enemy-stability" class="stat-label" text="100" />
+            </ui:VisualElement>
+            
+            <!-- City Nameplate -->
+            <ui:VisualElement class="nameplate">
+                <ui:Label name="enemy-city-nameplate" class="nameplate-text" text="IRON CITADEL" />
+            </ui:VisualElement>
+
+            <!-- Treasury Coins -->
+            <ui:VisualElement class="stat-badge">
+                <ui:VisualElement class="stat-icon coin-icon" />
+                <ui:Label name="enemy-treasury" class="stat-label" text="50" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- 2. Play Area Container Wrapper (Constrains play area bounds) -->
+        <ui:VisualElement name="play-area-container" class="play-area-wrapper">
+            <!-- Scrollable Game Board Play Area -->
+            <ui:ScrollView name="board-scroll-view" class="board-scroll-container" show-vertical-scroller="False" show-horizontal-scroller="False" />
+        </ui:VisualElement>
+
+        <!-- 3. Bottom HUD: Player Control Center -->
+        <ui:VisualElement name="bottom-hud" class="hud-container bottom-hud-container">
+            
+            <!-- Contextual Deployment/Action Bar -->
+            <ui:VisualElement name="contextual-action-bar" class="contextual-bar hidden">
+                <ui:Button name="deploy-btn" class="contextual-btn" text="DEPLOY" />
+                <ui:Button name="move-btn" class="contextual-btn" text="MOVE" />
+                <ui:Button name="attack-btn" class="contextual-btn" text="ATTACK" />
+            </ui:VisualElement>
+
+            <!-- Player Status Row -->
+            <ui:VisualElement class="stats-row">
+                <!-- Stability -->
+                <ui:VisualElement class="stat-badge">
+                    <ui:VisualElement class="stat-icon heart-icon" />
+                    <ui:Label name="player-stability" class="stat-label" text="100" />
+                </ui:VisualElement>
+                
+                <!-- City Nameplate -->
+                <ui:VisualElement class="nameplate">
+                    <ui:Label name="player-city-nameplate" class="nameplate-text" text="FREE HAVEN" />
+                </ui:VisualElement>
+
+                <!-- Treasury -->
+                <ui:VisualElement class="stat-badge">
+                    <ui:VisualElement class="stat-icon coin-icon" />
+                    <ui:Label name="player-treasury" class="stat-label" text="50" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <!-- Card Control & Actions Row -->
+            <ui:VisualElement class="controls-row">
+                <!-- Hand Carousel (Horizontal Scroll, takes full left + center area) -->
+                <ui:ScrollView name="hand-carousel" class="hand-carousel-scroll" mode="Horizontal" show-horizontal-scroller="false" show-vertical-scroller="false" />
+
+                <!-- Vertical Button Stack on the Right -->
+                <ui:VisualElement class="right-btn-stack">
+                    <!-- 1. Discard Pile (Top) -->
+                    <ui:VisualElement name="discard-container" class="stack-btn discard-pile">
+                        <ui:Label name="discard-count" class="stack-btn-text" text="0" />
+                        <ui:Label class="stack-btn-subtext" text="DISCARD" />
+                    </ui:VisualElement>
+
+                    <!-- 2. Deck Pile (Middle) -->
+                    <ui:VisualElement name="deck-container" class="stack-btn deck-pile">
+                        <ui:Label name="deck-count" class="stack-btn-text" text="24" />
+                        <ui:Label class="stack-btn-subtext" text="DECK" />
+                    </ui:VisualElement>
+
+                    <!-- 3. Done Button / End Turn (Bottom) -->
+                    <ui:Button name="end-turn-button" class="stack-btn done-btn">
+                        <ui:Label class="stack-btn-text done-text" text="DONE!" />
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <!-- 5. Zoom & Focus Controls Panel (Centered vertically on the right of Done/Deck buttons) -->
+            <ui:VisualElement name="zoom-controls-panel" class="zoom-panel-right">
+                <ui:Button name="zoom-in-button" class="zoom-btn" text="+" />
+                <ui:Button name="zoom-out-button" class="zoom-btn" text="-" />
+                <ui:Button name="toggle-hud-button" class="zoom-btn focus-btn">
+                    <ui:VisualElement class="square-focus-icon" />
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- 4. Central Inspector Overlay Popup (Starts Hidden) -->
+        <ui:VisualElement name="overlay-scrim" class="overlay-container hidden">
+            <ui:VisualElement class="inspector-card">
+                <!-- Close Button -->
+                <ui:Button name="overlay-close-btn" class="inspector-close-btn" text="X" />
+
+                <!-- Card Name & Type -->
+                <ui:VisualElement>
+                    <ui:Label name="overlay-card-name" class="inspector-title" text="SCRIBBLED RECRUIT" />
+                    <ui:Label name="overlay-card-type" class="inspector-type" text="UNIT" />
+                </ui:VisualElement>
+
+                <!-- Image Art and Base Stats Layout -->
+                <ui:VisualElement class="inspector-content-row">
+                    <!-- Pen Sketch Art Element -->
+                    <ui:VisualElement name="overlay-card-art" class="inspector-art-container" />
+                    
+                    <!-- Stats Column -->
+                    <ui:VisualElement class="inspector-stats-container">
+                        <!-- Health (HP) -->
+                        <ui:VisualElement class="inspector-stat-row">
+                            <ui:VisualElement class="inspector-stat-icon heart-icon" />
+                            <ui:Label name="overlay-card-health" class="inspector-stat-label" text="15" />
+                        </ui:VisualElement>
+                        
+                        <!-- Attack (ATK) -->
+                        <ui:VisualElement class="inspector-stat-row">
+                            <!-- Use standard character outline for attack -->
+                            <ui:Label class="inspector-stat-icon" text="⚔" style="font-size: 20px; -unity-text-align: center; color: #EE3333; margin-right: 6px;" />
+                            <ui:Label name="overlay-card-attack" class="inspector-stat-label" text="5" />
+                        </ui:VisualElement>
+
+                        <!-- Range (RNG) -->
+                        <ui:VisualElement class="inspector-stat-row">
+                            <ui:Label class="inspector-stat-icon" text="⤏" style="font-size: 24px; -unity-text-align: center; color: #0033AA; margin-right: 6px;" />
+                            <ui:Label name="overlay-card-range" class="inspector-stat-label" text="1" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <!-- Ability Rules Description -->
+                <ui:VisualElement class="inspector-ability-container">
+                    <ui:Label name="overlay-card-ability" class="inspector-ability-text" text="Attacks Forward. Deals damage to the tile. Smells like graphite." />
+        </ui:VisualElement>
+    </ui:VisualElement> <!-- Closing tag for inspector-card -->
+</ui:VisualElement> <!-- Closing tag for overlay-scrim -->
+        
+</ui:VisualElement> <!-- Closing tag for main-canvas -->
+</ui:UXML>
+ 
