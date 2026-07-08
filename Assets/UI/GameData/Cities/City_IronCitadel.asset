@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df8a2cd1fc80124893b5805a58f5107, type: 3}
+  m_Name: City_IronCitadel
+  m_EditorClassIdentifier: 
+  cityId: city.iron_citadel
+  displayName: IRON CITADEL
+  startingTreasury: 50
+  startingHealth: 50
+  defaultDeck: {fileID: 11400000, guid: 25d1aa5139cc4466afbbf53c1aa5f604, type: 2}
+  cityBannerArt: {fileID: 0}

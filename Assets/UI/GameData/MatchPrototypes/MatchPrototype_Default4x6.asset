@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4980d2742c147a8449f5f3eb966f1add, type: 3}
+  m_Name: MatchPrototype_Default4x6
+  m_EditorClassIdentifier: 
+  localSeat: 0
+  hotseatTestMode: 1
+  startingTurn: 0
+  boardLayout: {fileID: 11400000, guid: 5b640c66cd6d4f0da4ee1a260b77b306, type: 2}
+  seatOne:
+    seat: 0
+    city: {fileID: 11400000, guid: 3f96b4fdf69c4e4585b6d4ad2c17b104, type: 2}
+    deck: {fileID: 11400000, guid: 14ea6dd3eef74285a3ae026e17bc2f03, type: 2}
+    startingHealthOverride: -1
+    startingTreasuryOverride: -1
+    openingHandSize: 2
+    turnStartDrawCount: 1
+    openingHand: []
+  seatTwo:
+    seat: 1
+    city: {fileID: 11400000, guid: 4a52ff978e1349b7a2026ba4ea17b205, type: 2}
+    deck: {fileID: 11400000, guid: 25d1aa5139cc4466afbbf53c1aa5f604, type: 2}
+    startingHealthOverride: -1
+    startingTreasuryOverride: -1
+    openingHandSize: 2
+    turnStartDrawCount: 1
+    openingHand: []
+  startingCardPlacements: []

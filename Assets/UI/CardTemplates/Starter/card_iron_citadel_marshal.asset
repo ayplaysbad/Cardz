@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e380cf93c343e46bf15b8b580ab1e1, type: 3}
+  m_Name: card_iron_citadel_marshal
+  m_EditorClassIdentifier: Assembly-CSharp::LastFreeCity.UI.CardTemplate
+  cardId: card.iron_citadel.marshal
+  cardName: Marshal
+  treasuryCost: 24
+  cardType: 0
+  health: 20
+  attack: 8
+  range: 1
+  movementRange: 2
+  unitTag: 3
+  infrastructureKind: 0
+  commandCardKind: 0
+  keywordEffects:
+  - keyword: 8
+    value: 1
+    trigger: 9
+    duration: 5
+    durationTurns: 0
+    targetScope: 0
+    targetCardType: 0
+    targetUnitTag: 0
+    targetInfrastructureKind: 0
+    range: 1
+    spawnedCard: {fileID: 0}
+    shortDescription: Secure 1 every 5 deploys.
+    detailedDescription: Every fifth friendly Deploy phase after Marshal enters play,
+      if it remains on the same connected Freespace tile for 2 checks, that tile
+      becomes a weakened base tile in your network.
+  - keyword: 11
+    value: 1
+    trigger: 9
+    duration: 5
+    durationTurns: 0
+    targetScope: 0
+    targetCardType: 0
+    targetUnitTag: 0
+    targetInfrastructureKind: 0
+    range: 1
+    spawnedCard: {fileID: 0}
+    shortDescription: 'Maneuver: move orthogonally.'
+    detailedDescription: Marshal may move orthogonally in any direction during Deploy
+      using its movement range.
+  attachedItemCard: {fileID: 0}
+  bonusHealth: 0
+  bonusAttack: 0
+  bonusRange: 0
+  bonusMovementRange: 0
+  bonusSiegeAttack: 0
+  abilities: []
+  abilityText: 
+  detailedAbilityText: Plain unit slate. Upgrade with orders or items.
+  customArt: {fileID: 21300000, guid: fe3a718de82e986409e9e4da651dee66, type: 3}

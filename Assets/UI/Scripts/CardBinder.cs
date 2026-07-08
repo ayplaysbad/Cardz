@@ -71,7 +71,7 @@ namespace LastFreeCity.UI
 
             // Bind ability text
             var abilityLabel = _root.Q<Label>("card-ability");
-            if (abilityLabel != null) abilityLabel.text = cardData.abilityText;
+            if (abilityLabel != null) abilityLabel.text = cardData.GetDetailedAbilityText();
 
             // Bind art texture
             var artElement = _root.Q<VisualElement>("card-art");

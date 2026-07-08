@@ -1,0 +1,25 @@
+{
+  "name": "Scribble Wars",
+  "short_name": "Scribble Wars",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4ead6",
+  "theme_color": "#f4ead6",
+  "description": "Scribble Wars private pre-alpha test build.",
+  "icons": [
+    {
+      "src": "./pwa-icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./pwa-icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

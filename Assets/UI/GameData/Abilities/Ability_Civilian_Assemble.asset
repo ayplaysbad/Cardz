@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f0f63ca50c444a8e078c4fd5d4b361, type: 3}
+  m_Name: Ability_Civilian_Repair
+  m_EditorClassIdentifier: 
+  abilityId: ability.civilian.repair
+  displayName: Repair
+  abilityCategory: 1
+  shortDescription: Heals nearby friendly structures and base tiles by 5.
+  detailedDescription: At the start of every Deploy phase, heal this tile and all
+    adjacent friendly Building or Base Tile health pools by 5.

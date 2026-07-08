@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e380cf93c343e46bf15b8b580ab1e1, type: 3}
+  m_Name: card_iron_citadel_outpost
+  m_EditorClassIdentifier: Assembly-CSharp::LastFreeCity.UI.CardTemplate
+  cardId: card.iron_citadel.outpost
+  cardName: Outpost
+  treasuryCost: 14
+  cardType: 1
+  health: 18
+  attack: 0
+  range: 0
+  movementRange: 0
+  unitTag: 0
+  infrastructureKind: 2
+  commandCardKind: 0
+  keywordEffects:
+  - keyword: 15
+    value: 2
+    trigger: 9
+    duration: 5
+    durationTurns: 0
+    targetScope: 0
+    targetCardType: 0
+    targetUnitTag: 0
+    targetInfrastructureKind: 0
+    range: 1
+    spawnedCard: {fileID: 0}
+    shortDescription: Adjacent allies gain +2 AT.
+    detailedDescription: Friendly units on orthogonally adjacent tiles gain +2 AT
+      during Attack while Outpost stands.
+  attachedItemCard: {fileID: 0}
+  bonusHealth: 0
+  bonusAttack: 0
+  bonusRange: 0
+  bonusMovementRange: 0
+  bonusSiegeAttack: 0
+  abilities: []
+  abilityText: 
+  detailedAbilityText: 
+  customArt: {fileID: 21300000, guid: 8928725bb84718a4cb5b4701b99539cd, type: 3}

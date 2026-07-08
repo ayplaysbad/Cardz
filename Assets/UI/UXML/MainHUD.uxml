@@ -2,8 +2,28 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/USS/LastFreeCityStyles.uss?fileID=7433451118619660217&amp;guid=44260f1ff216603469dce16f19858cdc&amp;type=3#LastFreeCityStyles" />
     
+    <ui:VisualElement name="safe-area-root" class="safe-area-root">
     <ui:VisualElement name="main-canvas" class="main-canvas">
+        <ui:VisualElement name="arena-background-wash" class="arena-background-wash" />
 
+        <ui:VisualElement name="gameplay-shell" class="gameplay-shell">
+            <ui:VisualElement name="left-desktop-dock" class="desktop-side-dock desktop-side-dock-left">
+                <ui:VisualElement class="desktop-dock-panel">
+                    <ui:Label class="desktop-dock-kicker" text="LEFT RAIL" />
+                    <ui:Label class="desktop-dock-title" text="BATTLE LOG" />
+                    <ui:Label class="desktop-dock-copy" text="Desktop placeholder for awareness history, move history, round recap, and match notes." />
+                    <ui:VisualElement class="desktop-dock-chip">
+                        <ui:Label class="desktop-dock-chip-text" text="Later: awareness feed" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="desktop-dock-chip">
+                        <ui:Label class="desktop-dock-chip-text" text="Later: move + attack history" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="center-stage-shell" class="center-stage-shell">
+                <ui:VisualElement name="center-stage-content" class="center-stage-content">
+                    <ui:VisualElement name="desktop-board-column" class="desktop-board-column">
         <!-- 1. Top HUD: Enemy Free City Banner -->
         <ui:VisualElement name="top-hud" class="hud-container top-hud-bar">
             <!-- Stability Indicator -->
@@ -11,16 +31,30 @@
                 <ui:VisualElement class="stat-icon heart-icon" />
                 <ui:Label name="enemy-stability" class="stat-label" text="100" />
             </ui:VisualElement>
+
+            <ui:VisualElement name="enemy-round-badge-shell" class="round-badge-shell round-badge-hidden">
+                <ui:VisualElement name="enemy-round-badge" class="round-badge-image" />
+            </ui:VisualElement>
             
             <!-- City Nameplate -->
-            <ui:VisualElement class="nameplate">
-                <ui:Label name="enemy-city-nameplate" class="nameplate-text" text="IRON CITADEL" />
+            <ui:VisualElement name="enemy-city-header-group" class="city-header-group city-header-group-top">
+                <ui:VisualElement class="nameplate">
+                    <ui:VisualElement class="nameplate-inline-row">
+                        <ui:Label name="enemy-city-nameplate" class="nameplate-text" text="IRON CITADEL" />
+                        <ui:VisualElement class="nameplate-side-slot nameplate-side-slot-right">
+                            <ui:VisualElement name="enemy-city-state-shell" class="city-state-badge city-state-hidden">
+                                <ui:Label name="enemy-city-state" class="city-state-text" text="" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
             </ui:VisualElement>
 
             <!-- Treasury Coins -->
             <ui:VisualElement class="stat-badge">
                 <ui:VisualElement class="stat-icon coin-icon" />
                 <ui:Label name="enemy-treasury" class="stat-label" text="50" />
+                <ui:Label name="enemy-treasury-income" class="treasury-income-label" text="+5" />
             </ui:VisualElement>
         </ui:VisualElement>
 
@@ -28,16 +62,15 @@
         <ui:VisualElement name="play-area-container" class="play-area-wrapper">
             <!-- Scrollable Game Board Play Area -->
             <ui:ScrollView name="board-scroll-view" class="board-scroll-container" show-vertical-scroller="False" show-horizontal-scroller="False" />
+            <ui:Button name="mobile-left-dock-toggle" class="mobile-dock-toggle mobile-dock-toggle-left" text="&lt;" />
+            <ui:Button name="mobile-right-dock-toggle" class="mobile-dock-toggle mobile-dock-toggle-right" text="&gt;" />
+
         </ui:VisualElement>
 
         <!-- 3. Bottom HUD: Player Control Center -->
         <ui:VisualElement name="bottom-hud" class="hud-container bottom-hud-container">
-            
-            <!-- Contextual Deployment/Action Bar -->
-            <ui:VisualElement name="contextual-action-bar" class="contextual-bar hidden">
-                <ui:Button name="deploy-btn" class="contextual-btn" text="DEPLOY" />
-                <ui:Button name="move-btn" class="contextual-btn" text="MOVE" />
-                <ui:Button name="attack-btn" class="contextual-btn" text="ATTACK" />
+            <ui:VisualElement name="ability-preview-shell" class="ability-preview-shell">
+                <ui:Label name="ability-preview-text" class="ability-preview-text" text="" />
             </ui:VisualElement>
 
             <!-- Player Status Row -->
@@ -47,21 +80,49 @@
                     <ui:VisualElement class="stat-icon heart-icon" />
                     <ui:Label name="player-stability" class="stat-label" text="100" />
                 </ui:VisualElement>
+
+                <ui:VisualElement name="player-round-badge-shell" class="round-badge-shell round-badge-hidden">
+                    <ui:VisualElement name="player-round-badge" class="round-badge-image" />
+                </ui:VisualElement>
                 
                 <!-- City Nameplate -->
-                <ui:VisualElement class="nameplate">
-                    <ui:Label name="player-city-nameplate" class="nameplate-text" text="FREE HAVEN" />
+                <ui:VisualElement name="player-city-header-group" class="city-header-group city-header-group-bottom">
+                    <ui:VisualElement class="nameplate">
+                        <ui:VisualElement class="nameplate-inline-row">
+                            <ui:Label name="player-city-nameplate" class="nameplate-text" text="FREE HAVEN" />
+                            <ui:VisualElement class="nameplate-side-slot nameplate-side-slot-right">
+                                <ui:VisualElement name="player-city-state-shell" class="city-state-badge city-state-hidden">
+                                    <ui:Label name="player-city-state" class="city-state-text" text="" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
                 </ui:VisualElement>
 
                 <!-- Treasury -->
                 <ui:VisualElement class="stat-badge">
                     <ui:VisualElement class="stat-icon coin-icon" />
                     <ui:Label name="player-treasury" class="stat-label" text="50" />
+                    <ui:Label name="player-treasury-income" class="treasury-income-label" text="+5" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="phase-timer-group" class="phase-timer-group">
+                <ui:Label name="phase-timer-label" class="phase-timer-label" text="" />
+                <ui:VisualElement name="phase-timer-shell" class="phase-timer-shell">
+                    <ui:VisualElement name="phase-timer-fill" class="phase-timer-fill phase-timer-fill-blue" />
                 </ui:VisualElement>
             </ui:VisualElement>
 
             <!-- Card Control & Actions Row -->
             <ui:VisualElement class="controls-row">
+                <ui:VisualElement name="war-shop-dock" class="war-shop-dock war-shop-hidden">
+                    <ui:VisualElement class="war-shop-dock-body">
+                        <ui:Label class="war-shop-dock-title" text="ENTER WAR SHOP" />
+                        <ui:Label name="war-shop-dock-copy" class="war-shop-dock-copy" text="1 max purchase per turn" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
                 <!-- Hand Carousel (Horizontal Scroll, takes full left + center area) -->
                 <ui:ScrollView name="hand-carousel" class="hand-carousel-scroll" mode="Horizontal" show-horizontal-scroller="false" show-vertical-scroller="false" />
 
@@ -81,7 +142,7 @@
 
                     <!-- 3. Done Button / End Turn (Bottom) -->
                     <ui:Button name="end-turn-button" class="stack-btn done-btn">
-                        <ui:Label class="stack-btn-text done-text" text="DONE!" />
+                        <ui:Label name="end-turn-button-text" class="stack-btn-text done-text" text="DONE!" />
                     </ui:Button>
                 </ui:VisualElement>
             </ui:VisualElement>
@@ -93,11 +154,34 @@
                 <ui:Button name="toggle-hud-button" class="zoom-btn focus-btn">
                     <ui:VisualElement class="square-focus-icon" />
                 </ui:Button>
+                <ui:Button name="center-board-button" class="zoom-btn" text="C" />
+                <ui:Button name="encyclopedia-button" class="zoom-btn" text="?" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+                    </ui:VisualElement>
+                    <ui:VisualElement name="desktop-control-strip" class="desktop-control-strip" />
+                </ui:VisualElement>
+
+            </ui:VisualElement>
+
+            <ui:VisualElement name="right-desktop-dock" class="desktop-side-dock desktop-side-dock-right">
+                <ui:VisualElement class="desktop-dock-panel">
+                    <ui:Label class="desktop-dock-kicker" text="RIGHT RAIL" />
+                    <ui:Label class="desktop-dock-title" text="FIELD NOTES" />
+                    <ui:Label class="desktop-dock-copy" text="Desktop placeholder for tips, tricks, keyword lists, and other reference pages that already exist on mobile as overlays." />
+                    <ui:VisualElement class="desktop-dock-chip">
+                        <ui:Label class="desktop-dock-chip-text" text="Later: quick tips" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="desktop-dock-chip">
+                        <ui:Label class="desktop-dock-chip-text" text="Later: keyword glossary" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
 
         <!-- 4. Central Inspector Overlay Popup (Starts Hidden) -->
-        <ui:VisualElement name="overlay-scrim" class="overlay-container hidden">
+        <ui:VisualElement name="overlay-scrim" class="overlay-container overlay-hidden">
             <ui:VisualElement class="inspector-card">
                 <!-- Close Button -->
                 <ui:Button name="overlay-close-btn" class="inspector-close-btn" text="X" />
@@ -105,7 +189,7 @@
                 <!-- Card Name & Type -->
                 <ui:VisualElement>
                     <ui:Label name="overlay-card-name" class="inspector-title" text="SCRIBBLED RECRUIT" />
-                    <ui:Label name="overlay-card-type" class="inspector-type" text="UNIT" />
+                    <ui:Label name="overlay-card-type" class="inspector-type" text="CARD" />
                 </ui:VisualElement>
 
                 <!-- Image Art and Base Stats Layout -->
@@ -115,6 +199,12 @@
                     
                     <!-- Stats Column -->
                     <ui:VisualElement class="inspector-stats-container">
+                        <!-- Cost -->
+                        <ui:VisualElement class="inspector-stat-row">
+                            <ui:VisualElement class="inspector-stat-icon coin-icon" />
+                            <ui:Label name="overlay-card-cost" class="inspector-stat-label" text="10" />
+                        </ui:VisualElement>
+
                         <!-- Health (HP) -->
                         <ui:VisualElement class="inspector-stat-row">
                             <ui:VisualElement class="inspector-stat-icon heart-icon" />
@@ -123,26 +213,176 @@
                         
                         <!-- Attack (ATK) -->
                         <ui:VisualElement class="inspector-stat-row">
-                            <!-- Use standard character outline for attack -->
-                            <ui:Label class="inspector-stat-icon" text="⚔" style="font-size: 20px; -unity-text-align: center; color: #EE3333; margin-right: 6px;" />
+                            <ui:VisualElement class="inspector-stat-icon attack-icon" />
                             <ui:Label name="overlay-card-attack" class="inspector-stat-label" text="5" />
                         </ui:VisualElement>
 
                         <!-- Range (RNG) -->
                         <ui:VisualElement class="inspector-stat-row">
-                            <ui:Label class="inspector-stat-icon" text="⤏" style="font-size: 24px; -unity-text-align: center; color: #0033AA; margin-right: 6px;" />
-                            <ui:Label name="overlay-card-range" class="inspector-stat-label" text="1" />
+                            <ui:VisualElement class="inspector-stat-icon movement-icon" />
+                            <ui:Label name="overlay-card-range" class="inspector-stat-label inspector-range-label" text="1" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
 
                 <!-- Ability Rules Description -->
                 <ui:VisualElement class="inspector-ability-container">
-                    <ui:Label name="overlay-card-ability" class="inspector-ability-text" text="Attacks Forward. Deals damage to the tile. Smells like graphite." />
+                    <ui:ScrollView class="inspector-ability-scroll" mode="Vertical" show-horizontal-scroller="false" show-vertical-scroller="false">
+                        <ui:VisualElement name="overlay-card-rules" class="inspector-rule-list" />
+                    </ui:ScrollView>
+                </ui:VisualElement>
+            </ui:VisualElement> <!-- Closing tag for inspector-card -->
+        </ui:VisualElement> <!-- Closing tag for overlay-scrim -->
+        <ui:VisualElement name="pile-viewer-overlay" class="pile-viewer-overlay">
+            <ui:VisualElement class="pile-viewer-panel">
+                <ui:VisualElement class="pile-viewer-header">
+                    <ui:Label name="pile-viewer-title" class="pile-viewer-title" text="DECK" />
+                    <ui:Button name="pile-viewer-close-button" class="pile-viewer-close-button" text="X" />
+                </ui:VisualElement>
+                <ui:ScrollView name="pile-viewer-scroll" class="pile-viewer-scroll" mode="Vertical" show-horizontal-scroller="false" show-vertical-scroller="false" />
+            </ui:VisualElement>
         </ui:VisualElement>
-    </ui:VisualElement> <!-- Closing tag for inspector-card -->
-</ui:VisualElement> <!-- Closing tag for overlay-scrim -->
-        
+        <ui:VisualElement name="war-shop-overlay" class="pile-viewer-overlay">
+            <ui:VisualElement class="pile-viewer-panel war-shop-panel">
+                <ui:VisualElement class="pile-viewer-header">
+                    <ui:Label class="pile-viewer-title" text="WAR SHOP" />
+                    <ui:Button name="war-shop-close-button" class="pile-viewer-close-button" text="X" />
+                </ui:VisualElement>
+                <ui:Label name="war-shop-status" class="arena-selection-status" text="Choose one emergency purchase for this attack turn." />
+                <ui:ScrollView name="war-shop-scroll" class="pile-viewer-scroll" mode="Vertical" show-horizontal-scroller="false" show-vertical-scroller="false" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="encyclopedia-overlay" class="pile-viewer-overlay">
+            <ui:VisualElement class="pile-viewer-panel encyclopedia-panel">
+                <ui:VisualElement class="pile-viewer-header">
+                    <ui:Label class="pile-viewer-title" text="FIELD GUIDE" />
+                    <ui:Button name="encyclopedia-close-button" class="pile-viewer-close-button" text="X" />
+                </ui:VisualElement>
+                <ui:Label name="encyclopedia-status" class="arena-selection-status" text="Tap any tab. Nothing here is forced." />
+                <ui:VisualElement name="encyclopedia-tab-strip" class="encyclopedia-tab-strip" />
+                <ui:ScrollView name="encyclopedia-scroll" class="pile-viewer-scroll encyclopedia-scroll" mode="Vertical" show-horizontal-scroller="false" show-vertical-scroller="false">
+                    <ui:VisualElement name="encyclopedia-content" class="encyclopedia-content" />
+                </ui:ScrollView>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
 </ui:VisualElement> <!-- Closing tag for main-canvas -->
+    <ui:VisualElement name="mobile-dock-scrim" class="mobile-dock-scrim" />
+
+    <ui:VisualElement name="mobile-left-dock-panel" class="mobile-dock-panel mobile-dock-panel-left">
+        <ui:VisualElement class="mobile-dock-inner">
+            <ui:VisualElement class="mobile-dock-header">
+                <ui:Label class="mobile-dock-header-text" text="BATTLE LOG" />
+                <ui:Button name="mobile-left-dock-close" class="mobile-dock-close" text="X" />
+            </ui:VisualElement>
+            <ui:VisualElement class="desktop-dock-panel">
+                <ui:Label class="desktop-dock-kicker" text="LEFT RAIL" />
+                <ui:Label class="desktop-dock-title" text="BATTLE LOG" />
+                <ui:Label class="desktop-dock-copy" text="Mobile drawer placeholder for awareness history, move history, round recap, and match notes." />
+                <ui:VisualElement class="desktop-dock-chip">
+                    <ui:Label class="desktop-dock-chip-text" text="Later: awareness feed" />
+                </ui:VisualElement>
+                <ui:VisualElement class="desktop-dock-chip">
+                    <ui:Label class="desktop-dock-chip-text" text="Later: move + attack history" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+
+    <ui:VisualElement name="mobile-right-dock-panel" class="mobile-dock-panel mobile-dock-panel-right">
+        <ui:VisualElement class="mobile-dock-inner">
+            <ui:VisualElement class="mobile-dock-header">
+                <ui:Label class="mobile-dock-header-text" text="FIELD NOTES" />
+                <ui:Button name="mobile-right-dock-close" class="mobile-dock-close" text="X" />
+            </ui:VisualElement>
+            <ui:VisualElement class="desktop-dock-panel">
+                <ui:Label class="desktop-dock-kicker" text="RIGHT RAIL" />
+                <ui:Label class="desktop-dock-title" text="FIELD NOTES" />
+                <ui:Label class="desktop-dock-copy" text="Mobile drawer placeholder for quick tips, keyword lists, and later reference pages." />
+                <ui:VisualElement class="desktop-dock-chip">
+                    <ui:Label class="desktop-dock-chip-text" text="Later: quick tips" />
+                </ui:VisualElement>
+                <ui:VisualElement class="desktop-dock-chip">
+                    <ui:Label class="desktop-dock-chip-text" text="Later: keyword glossary" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="game-mode-overlay" class="game-mode-overlay">
+        <ui:VisualElement class="game-mode-panel">
+            <ui:Label class="game-mode-title" text="CHOOSE GAME MODE" />
+            <ui:Label name="game-mode-status" class="game-mode-status" text="Start with the field guide, a local test, or online play." />
+            <ui:Button name="mode-tutorial-button" class="game-mode-button game-mode-button-guide">
+                <ui:Label class="game-mode-button-title" text="FIELD GUIDE" />
+                <ui:Label class="game-mode-button-copy" text="Read the basics, card types, keywords, and flow before playing." />
+            </ui:Button>
+            <ui:Button name="mode-turn-based-button" class="game-mode-button game-mode-button-turnbased">
+                <ui:Label class="game-mode-button-title" text="TURN-BASED TEST" />
+                <ui:Label class="game-mode-button-copy" text="Hotseat. You control both cities from one screen." />
+            </ui:Button>
+            <ui:Button name="mode-online-quickmatch-button" class="game-mode-button game-mode-button-online">
+                <ui:Label class="game-mode-button-title" text="ONLINE" />
+                <ui:Label class="game-mode-button-copy" text="Connect first, then choose your city and arena." />
+            </ui:Button>
+            <ui:VisualElement name="mode-city-section" class="game-mode-city-section">
+                <ui:Label class="game-mode-section-label" text="CHOOSE YOUR CITY" />
+                <ui:VisualElement class="city-select-row">
+                    <ui:Button name="mode-city-freehaven-button" class="city-select-button city-select-freehaven">
+                        <ui:Label class="city-select-title" text="FREE HAVEN" />
+                        <ui:Label class="city-select-copy" text="Protection, healing, economy." />
+                    </ui:Button>
+                    <ui:Button name="mode-city-citadel-button" class="city-select-button city-select-citadel">
+                        <ui:Label class="city-select-title" text="IRON CITADEL" />
+                        <ui:Label class="city-select-copy" text="Pressure, steel, heavy hits." />
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Button name="mode-testing-button" class="game-mode-button game-mode-button-testing">
+                <ui:Label class="game-mode-button-title" text="TESTING" />
+                <ui:Label class="game-mode-button-copy" text="Hotseat. No timer. Both sides get the full combined card pool." />
+            </ui:Button>
+            <ui:Button name="mode-install-app-button" class="game-mode-install-button">
+                <ui:Label class="game-mode-install-text" text="INSTALL FULLSCREEN APP" />
+            </ui:Button>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="arena-selection-overlay" class="arena-selection-overlay">
+        <ui:VisualElement class="arena-selection-panel">
+            <ui:Label class="arena-selection-title" text="CHOOSE ARENA" />
+            <ui:Label name="arena-selection-status" class="arena-selection-status" text="Choose where this fight is happening." />
+            <ui:VisualElement class="arena-choice-row">
+                <ui:Button name="arena-freehaven-garden-button" class="arena-choice-card arena-choice-freehaven">
+                    <ui:VisualElement class="arena-choice-preview arena-preview-freehaven-garden" />
+                    <ui:Label class="arena-choice-title" text="FREE HAVEN GARDEN" />
+                    <ui:Label class="arena-choice-copy" text="A softer home-field sketch. Buffs later, vibes now." />
+                </ui:Button>
+                <ui:Button name="arena-citadel-training-button" class="arena-choice-card arena-choice-citadel">
+                    <ui:VisualElement class="arena-choice-preview arena-preview-citadel-training" />
+                    <ui:Label class="arena-choice-title" text="CITADEL TRAINING GROUNDS" />
+                    <ui:Label class="arena-choice-copy" text="Concrete, drills, and suspiciously sharp fences." />
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="reconnect-overlay" class="reconnect-overlay">
+        <ui:VisualElement class="reconnect-panel">
+            <ui:Label class="reconnect-title" text="WAITING FOR RECONNECT..." />
+            <ui:Label name="reconnect-message" class="reconnect-message" text="Trying to keep this match alive." />
+            <ui:Label name="reconnect-countdown" class="reconnect-countdown" text="30" />
+            <ui:Button name="reconnect-back-button" class="reconnect-back-button">
+                <ui:Label class="reconnect-back-button-text" text="BACK TO MENU" />
+            </ui:Button>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="match-end-overlay" class="match-end-overlay">
+        <ui:VisualElement class="match-end-panel">
+            <ui:Label class="match-end-title" text="MATCH OVER" />
+            <ui:Label name="match-end-winner" class="match-end-winner" text="FREE HAVEN WINS" />
+            <ui:Label name="match-end-message" class="match-end-message" text="The city has fallen." />
+            <ui:Button name="match-end-back-button" class="match-end-back-button">
+                <ui:Label class="match-end-back-button-text" text="BACK TO MENU" />
+            </ui:Button>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:VisualElement> <!-- Closing tag for safe-area-root -->
 </ui:UXML>
- 

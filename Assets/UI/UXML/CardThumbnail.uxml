@@ -9,16 +9,26 @@
         <!-- White card body layer (drawn on top, covering the center) -->
         <ui:VisualElement class="card-body">
             <ui:VisualElement name="card-art" class="thumbnail-art" />
-            <ui:Label name="card-name" class="thumbnail-title" text="SCRIBBLED RECRUIT" />
+            <ui:VisualElement class="thumbnail-copy-zone">
+                <ui:Label name="card-name" class="thumbnail-title" text="SCRIBBLED RECRUIT" />
+            </ui:VisualElement>
             
             <!-- Hand Card Stats Bar (HP & AT) -->
             <ui:VisualElement class="card-stats-bar">
                 <ui:Label name="card-hp" class="card-stat-text hp-text" text="15 HP" />
+                <ui:VisualElement class="thumbnail-status-row">
+                    <ui:Label name="card-lock-icon" class="thumbnail-status-icon thumbnail-lock-icon" text="L" />
+                    <ui:Label name="card-ability-icon" class="thumbnail-status-icon thumbnail-ability-icon" text="A" />
+                    <ui:Label name="card-item-icon" class="thumbnail-status-icon thumbnail-item-icon" text="I" />
+                </ui:VisualElement>
                 <ui:Label name="card-at" class="card-stat-text at-text" text="5 AT" />
             </ui:VisualElement>
 
             <ui:VisualElement class="thumbnail-cost-badge">
                 <ui:Label name="card-cost" class="thumbnail-cost-text" text="10" />
+            </ui:VisualElement>
+            <ui:VisualElement class="thumbnail-type-badge">
+                <ui:Label name="card-type-badge" class="thumbnail-type-text" text="CIVILIAN" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

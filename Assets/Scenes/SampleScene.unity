@@ -119,6 +119,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &211754070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211754072}
+  - component: {fileID: 211754071}
+  m_Layer: 0
+  m_Name: LocalMultiplayerBootstrap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &211754071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211754070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2abfe9f02447364e96f31072c816557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LastFreeCity.Gameplay.LocalMultiplayerTestBootstrap
+  uiManager: {fileID: 800000003}
+  prototypeMatch: {fileID: 11400000, guid: 6c75d04ae7c14225bf58c0f40e23b407, type: 2}
+  connectAddress: 127.0.0.1
+  port: 7777
+  autoStartFromCommandLine: 1
+  snapshotSendInterval: 0.15
+--- !u!4 &211754072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211754070}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,17 +436,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCityName: FREE HAVEN
-  playerStability: 100
+  playerStability: 50
   playerTreasury: 50
-  deckRemainingCount: 24
+  deckRemainingCount: 1
   enemyCityName: IRON CITADEL
-  enemyStability: 100
+  enemyStability: 50
   enemyTreasury: 50
-  cardsInHand:
-  - {fileID: 11400000, guid: 828b40a2fbfa35a4fad09cf36c4cc1f5, type: 2}
-  - {fileID: 11400000, guid: 6609f243544495b4bac568695d220aa7, type: 2}
-  - {fileID: 11400000, guid: f9b433a44cafa1b408b5efa3473826a2, type: 2}
+  cardsInHand: []
   cardThumbnailTemplate: {fileID: 9197481963319205126, guid: 0bf28c9932bd8664886280d0f9fe99f2, type: 3}
+  prototypeMatch: {fileID: 11400000, guid: 6c75d04ae7c14225bf58c0f40e23b407, type: 2}
   detailedCardData: {fileID: 0}
   isInspectorOverlayOpen: 0
   hideHUD: 0
@@ -430,3 +478,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 800000001}
+  - {fileID: 211754072}

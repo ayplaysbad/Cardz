@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Scribble Wars | Pre-Alpha</title>
+    <script>
+      (function () {
+        const ACCESS_KEY = 'scribblewars-prealpha-access';
+        const ACCESS_TOKEN = 'granted::PlaysBadScribble123';
+        const ADMIN_KEY = 'scribblewars-admin-access';
+        const ADMIN_TOKEN = 'granted::PlaysBadAdmin321';
+        const PUBLIC_KEY = 'scribblewars-public-access';
+        const params = new URLSearchParams(window.location.search || '');
+        const wantsAdmin = params.get('admin') === '1';
+
+        function readStoredValue(key) {
+          try {
+            return sessionStorage.getItem(key) || localStorage.getItem(key);
+          } catch (error) {
+            return null;
+          }
+        }
+
+        function hasTesterAccess() {
+          return readStoredValue(ACCESS_KEY) === ACCESS_TOKEN;
+        }
+
+        function hasAdminAccess() {
+          return readStoredValue(ADMIN_KEY) === ADMIN_TOKEN;
+        }
+
+        function publicAccessEnabled() {
+          return readStoredValue(PUBLIC_KEY) === '1';
+        }
+
+        if (wantsAdmin && !hasAdminAccess()) {
+          window.location.replace('./index.html');
+          return;
+        }
+
+        if (!wantsAdmin && hasAdminAccess()) {
+          window.location.replace('./game.html?admin=1');
+          return;
+        }
+
+        if (!publicAccessEnabled() && !hasTesterAccess() && !hasAdminAccess()) {
+          window.location.replace('./index.html');
+        }
+      })();
+    </script>
+    <link rel="manifest" href="manifest.webmanifest?v=20260708133414">
+    <meta name="theme-color" content="#f4ead6">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Scribble Wars">
+    <link rel="apple-touch-icon" href="pwa-icon-192.svg?v=20260708133414">
+    <script>
+      window.CardzPWA = window.ScribbleWarsPWA = (function () {
+        let deferredPrompt = null;
+
+        function canRegisterServiceWorker() {
+          return 'serviceWorker' in navigator
+            && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+        }
+
+        window.addEventListener('beforeinstallprompt', function (event) {
+          event.preventDefault();
+          deferredPrompt = event;
+        });
+
+        window.addEventListener('appinstalled', function () {
+          deferredPrompt = null;
+        });
+
+        async function requestInstall() {
+          const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+          const isIos = /iphone|ipad|ipod/i.test(window.navigator.userAgent || '');
+
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            try {
+              await deferredPrompt.userChoice;
+            } catch (error) {
+              console.warn('[ScribbleWarsPWA] Install prompt failed.', error);
+            }
+            return true;
+          }
+
+          if (isIos && !isStandalone) {
+            window.alert('To install Scribble Wars on iPhone or iPad, tap Share and then Add to Home Screen.');
+            return false;
+          }
+
+          if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            window.alert('Install requires HTTPS on mobile browsers. Serve this WebGL build over HTTPS and try again.');
+            return false;
+          }
+
+          window.alert('Install is not ready yet in this browser. Try again after the page finishes loading, or use the browser menu to install/add to home screen.');
+          return false;
+        }
+
+        async function registerServiceWorker() {
+          if (!canRegisterServiceWorker()) {
+            return;
+          }
+
+          try {
+            await navigator.serviceWorker.register('./sw.js?v=20260708133414');
+          } catch (error) {
+            console.warn('[ScribbleWarsPWA] Service worker registration failed.', error);
+          }
+        }
+
+        registerServiceWorker();
+
+        return {
+          requestInstall: requestInstall
+        };
+      })();
+    </script>
+  </head>
+  <body style="text-align:center;padding:0;border:0;margin:0;">
+    <canvas id="unity-canvas" width="1080" height="1920" tabindex="-1" style="width:1080px;height:1920px;background:#807C70"></canvas>
+    <script src="Build/Web.loader.20260708133414.js"></script>
+    <script>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
+        var canvas = document.querySelector('#unity-canvas');
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.position = 'fixed';
+
+        document.body.style.textAlign = 'left';
+      }
+
+      createUnityInstance(document.querySelector('#unity-canvas'), {
+        arguments: [],
+        dataUrl: 'Build/Web.20260708133414.data',
+        frameworkUrl: 'Build/Web.framework.20260708133414.js',
+        codeUrl: 'Build/Web.20260708133414.wasm',
+        streamingAssetsUrl: 'StreamingAssets',
+        companyName: 'PlaysBad',
+        productName: 'Scribble Wars',
+        productVersion: '1.0'
+      }).then((unityInstance) => {
+      }).catch((message) => {
+        alert(message);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d50131738a21a44bcda35ce4997d83, type: 3}
+  m_Name: BoardLayout_Prototype4x6
+  m_EditorClassIdentifier: 
+  rows: 6
+  columns: 4
+  canonicalTopSeat: 1
+  tiles:
+  - tileId: seat_two_base_r0_c0
+    row: 0
+    column: 0
+    owner: 2
+    areaKind: 0
+    maxHealth: 20
+    blocksCityUntilDestroyed: 1
+    becomesNeutralWhenDestroyed: 1
+  - tileId: seat_two_base_r0_c1
+    row: 0
+    column: 1
+    owner: 2
+    areaKind: 0
+    maxHealth: 20
+    blocksCityUntilDestroyed: 1
+    becomesNeutralWhenDestroyed: 1
+  - tileId: seat_two_base_r0_c2
+    row: 0
+    column: 2
+    owner: 2
+    areaKind: 0
+    maxHealth: 20
+    blocksCityUntilDestroyed: 1
+    becomesNeutralWhenDestroyed: 1
+  - tileId: seat_two_base_r0_c3
+    row: 0
+    column: 3
+    owner: 2
+    areaKind: 0
+    maxHealth: 20
+    blocksCityUntilDestroyed: 1
+    becomesNeutralWhenDestroyed: 1
+  - tileId: freeplay_r1_c0
+    row: 1
+    column: 0
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r1_c1
+    row: 1
+    column: 1
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r1_c2
+    row: 1
+    column: 2
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r1_c3
+    row: 1
+    column: 3
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r2_c0
+    row: 2
+    column: 0
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r2_c1
+    row: 2
+    column: 1
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r2_c2
+    row: 2
+    column: 2
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r2_c3
+    row: 2
+    column: 3
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r3_c0
+    row: 3
+    column: 0
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r3_c1
+    row: 3
+    column: 1
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r3_c2
+    row: 3
+    column: 2
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r3_c3
+    row: 3
+    column: 3
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r4_c0
+    row: 4
+    column: 0
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r4_c1
+    row: 4
+    column: 1
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r4_c2
+    row: 4
+    column: 2
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: freeplay_r4_c3
+    row: 4
+    column: 3
+    owner: 0
+    areaKind: 1
+    maxHealth: 0
+    blocksCityUntilDestroyed: 0
+    becomesNeutralWhenDestroyed: 0
+  - tileId: seat_one_base_r5_c0
+    row: 5
+    column: 0
+    owner: 1
+    areaKind: 0
+    maxHealth: 20
+    blocksCityUntilDestroyed: 1
+    becomesNeutralWhenDestroyed: 1
+  - tileId: seat_one_base_r5_c1
+    row: 5
+    column: 1
+    owner: 1
+    areaKind: 0
+    maxHealth: 20
+    blocksCityUntilDestroyed: 1
+    becomesNeutralWhenDestroyed: 1
+  - tileId: seat_one_base_r5_c2
+    row: 5
+    column: 2
+    owner: 1
+    areaKind: 0
+    maxHealth: 20
+    blocksCityUntilDestroyed: 1
+    becomesNeutralWhenDestroyed: 1
+  - tileId: seat_one_base_r5_c3
+    row: 5
+    column: 3
+    owner: 1
+    areaKind: 0
+    maxHealth: 20
+    blocksCityUntilDestroyed: 1
+    becomesNeutralWhenDestroyed: 1

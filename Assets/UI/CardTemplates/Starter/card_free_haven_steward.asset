@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e380cf93c343e46bf15b8b580ab1e1, type: 3}
+  m_Name: card_free_haven_steward
+  m_EditorClassIdentifier: Assembly-CSharp::LastFreeCity.UI.CardTemplate
+  cardId: card.free_haven.steward
+  cardName: Steward
+  treasuryCost: 22
+  cardType: 0
+  health: 17
+  attack: 7
+  range: 2
+  movementRange: 2
+  unitTag: 3
+  infrastructureKind: 0
+  commandCardKind: 0
+  keywordEffects:
+  - keyword: 1
+    value: 2
+    trigger: 9
+    duration: 5
+    durationTurns: 0
+    targetScope: 0
+    targetCardType: 0
+    targetUnitTag: 0
+    targetInfrastructureKind: 0
+    range: 1
+    spawnedCard: {fileID: 0}
+    shortDescription: 'Gather 2: gain +2 coins at Deploy.'
+    detailedDescription: At the start of each friendly Deploy phase, gain +2 coins
+      while Steward is on the board.
+  - keyword: 11
+    value: 1
+    trigger: 9
+    duration: 5
+    durationTurns: 0
+    targetScope: 0
+    targetCardType: 0
+    targetUnitTag: 0
+    targetInfrastructureKind: 0
+    range: 1
+    spawnedCard: {fileID: 0}
+    shortDescription: 'Maneuver: move orthogonally.'
+    detailedDescription: Steward may move orthogonally in any direction during Deploy
+      using its movement range.
+  attachedItemCard: {fileID: 0}
+  bonusHealth: 0
+  bonusAttack: 0
+  bonusRange: 0
+  bonusMovementRange: 0
+  bonusSiegeAttack: 0
+  abilities: []
+  abilityText: 
+  detailedAbilityText: Plain unit slate. Upgrade with orders or items.
+  customArt: {fileID: 21300000, guid: 9f6b95ce4c345e842b4d92a73d67c5c7, type: 3}

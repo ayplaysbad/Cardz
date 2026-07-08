@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3df91d551c762346aceaab490eed2ca, type: 3}
+  m_Name: Deck_IronCitadel
+  m_EditorClassIdentifier: 
+  deckId: deck.iron_citadel
+  displayName: IRON CITADEL DECK
+  cards:
+  - {fileID: 11400000, guid: 20628817b0092da429a2a565ee72d3d3, type: 2}
+  - {fileID: 11400000, guid: 20628817b0092da429a2a565ee72d3d3, type: 2}
+  - {fileID: 11400000, guid: c6bad74bac3d679499a8d02df55c1076, type: 2}
+  - {fileID: 11400000, guid: c6bad74bac3d679499a8d02df55c1076, type: 2}
+  - {fileID: 11400000, guid: c6bad74bac3d679499a8d02df55c1076, type: 2}
+  - {fileID: 11400000, guid: fa36717490696db4093b56c4e3fda90f, type: 2}
+  - {fileID: 11400000, guid: 00fabb35d952cb640a955e13f822e3b9, type: 2}
+  - {fileID: 11400000, guid: 00fabb35d952cb640a955e13f822e3b9, type: 2}
+  - {fileID: 11400000, guid: 00fabb35d952cb640a955e13f822e3b9, type: 2}
+  - {fileID: 11400000, guid: 00fabb35d952cb640a955e13f822e3b9, type: 2}
+  - {fileID: 11400000, guid: e71e50c7627fd654bafe46aa917ab5c1, type: 2}
+  - {fileID: 11400000, guid: e71e50c7627fd654bafe46aa917ab5c1, type: 2}
+  - {fileID: 11400000, guid: e71e50c7627fd654bafe46aa917ab5c1, type: 2}
+  - {fileID: 11400000, guid: e71e50c7627fd654bafe46aa917ab5c1, type: 2}
+  - {fileID: 11400000, guid: e71e50c7627fd654bafe46aa917ab5c1, type: 2}
+  - {fileID: 11400000, guid: 88dfeeb23c50e2643add3e92b0467fd1, type: 2}
+  - {fileID: 11400000, guid: 88dfeeb23c50e2643add3e92b0467fd1, type: 2}
+  - {fileID: 11400000, guid: 3ec09fffa8a03684aa6161d1200e2e3a, type: 2}
+  - {fileID: 11400000, guid: 3c48b59b8d6064246b9563740623916e, type: 2}
+  - {fileID: 11400000, guid: 7810f3e15d1ad1145b594b19aeffd4d0, type: 2}
+  - {fileID: 11400000, guid: 70f139f19c705f741b35c649fdf41ea0, type: 2}
+  - {fileID: 11400000, guid: 571a933875dd8e94184ea8bf2e6e72bc, type: 2}
+  - {fileID: 11400000, guid: 73a696bbd676db041b1e554c48c4167b, type: 2}
+  - {fileID: 11400000, guid: d3d0aab795a101b4ea5eaaee9e3c5d7b, type: 2}
+  - {fileID: 11400000, guid: 982c0d921c5ddfd499f49b449e30a093, type: 2}
+  - {fileID: 11400000, guid: 932eeaaec178e44488bbb190822949fa, type: 2}
+  - {fileID: 11400000, guid: 0984b08f685f30244b6b2773ea3d3159, type: 2}
+  - {fileID: 11400000, guid: 4a2ff337de9027644870956812f37d06, type: 2}
+  - {fileID: 11400000, guid: d3ea93990da0d794697ca7fd78c8b687, type: 2}
+  - {fileID: 11400000, guid: 7eafebdc3d2665c48a90b0c21082e5cf, type: 2}
+  - {fileID: 11400000, guid: c67cfc29c43c6424fb70021bc89e6b4f, type: 2}
+  - {fileID: 11400000, guid: c29b3ed46da624540a6bc252d21ae2f1, type: 2}

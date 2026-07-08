@@ -1,62 +1,857 @@
-/* Custom Stylesheet for Last Free City - Inlined for USS Compatibility */
+.safe-area-root {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
 
-/* Background & Margin Graph Grid */
 .main-canvas {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url("project://database/Assets/UI/Sprites/notebook_ruled_paper_bg.png?fileID=-957183366294213520&guid=987ea6dba28a222499c393e3ecf476c0&type=3#notebook_ruled_paper_bg_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.gameplay-shell {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    min-width: 0;
+}
+
+.center-stage-shell {
+    flex-grow: 1;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.center-stage-content {
     width: 100%;
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url("project://database/Assets/UI/Sprites/notebook_ruled_paper_bg.png");
-    -unity-background-scale-mode: stretch-to-fill;
-    padding: 40px;
+    align-items: stretch;
+    position: relative;
 }
 
-/* Hide utility */
+.desktop-board-column {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.desktop-control-strip {
+    display: none;
+}
+
+.desktop-side-dock {
+    display: none;
+    width: 0;
+    min-width: 0;
+    max-width: 0;
+    height: 100%;
+    flex-shrink: 0;
+    align-items: stretch;
+    justify-content: center;
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+
+.gameplay-shell.desktop-dock-layout {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.gameplay-shell.desktop-dock-layout .center-stage-shell {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    flex-grow: 1;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-side-dock {
+    display: flex;
+}
+
+.desktop-side-dock-left {
+    padding-right: 0;
+}
+
+.desktop-side-dock-right {
+    padding-left: 0;
+}
+
+.desktop-dock-panel {
+    flex-grow: 1;
+    min-height: 0;
+    padding: 22px 16px 18px;
+    background-image: url("project://database/Assets/UI/Sprites/postit_note_yellow.png?fileID=-7798892719133297459&guid=43bc4a074f4aeb148989bd1aaa481925&type=3#postit_note_yellow_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 252, 241, 0.92);
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.desktop-dock-kicker {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 15px;
+    color: rgba(107, 90, 69, 0.95);
+    -unity-text-align: middle-center;
+    margin-bottom: 4px;
+}
+
+.desktop-dock-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 22px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-center;
+    margin-bottom: 8px;
+}
+
+.desktop-dock-copy {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 16px;
+    color: rgb(77, 69, 59);
+    white-space: normal;
+    -unity-text-align: upper-left;
+    margin-bottom: 12px;
+}
+
+.desktop-dock-chip {
+    min-height: 52px;
+    margin-bottom: 8px;
+    padding: 8px 10px;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 247, 223, 0.96);
+    justify-content: center;
+    align-items: center;
+}
+
+.desktop-dock-chip-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 14px;
+    color: rgb(63, 60, 55);
+    -unity-text-align: middle-center;
+    white-space: normal;
+}
+
+.arena-bg-freehaven-garden {
+    background-image: url("project://database/Assets/UI/Sprites/other/freehaven_garden.png?fileID=1258273666007603836&guid=b4b988ed594c3ce49957b2e63265daf8&type=3#freehaven_garden_0");
+    -unity-background-scale-mode: scale-and-crop;
+}
+
+.arena-bg-citadel-training {
+    background-image: url("project://database/Assets/UI/Sprites/other/citadel_training_grounds.png?fileID=-9181578502624854077&guid=c868d43ef600a9246a6f8c0704bc0044&type=3#citadel_training_grounds_0");
+    -unity-background-scale-mode: scale-and-crop;
+}
+
+.arena-background-wash {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(246, 246, 240, 0.56);
+    display: none;
+}
+
+.arena-bg-freehaven-garden .arena-background-wash,
+.arena-bg-citadel-training .arena-background-wash {
+    display: flex;
+}
+
 .hidden {
     display: none;
 }
 
-/* HUD Common Transitions */
+.game-mode-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(245, 239, 214, 0.9);
+    padding: 48px;
+}
+
+.game-mode-panel {
+    width: 820px;
+    max-width: 94%;
+    padding: 48px 44px 42px;
+    background-image: url("project://database/Assets/UI/Sprites/postit_note_yellow.png?fileID=-7798892719133297459&guid=43bc4a074f4aeb148989bd1aaa481925&type=3#postit_note_yellow_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    align-items: stretch;
+}
+
+.game-mode-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 44px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-center;
+    margin-bottom: 16px;
+}
+
+.game-mode-status {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 24px;
+    color: rgb(92, 76, 61);
+    -unity-text-align: middle-center;
+    margin-bottom: 24px;
+    min-height: 40px;
+    white-space: normal;
+}
+
+.game-mode-button {
+    min-height: 126px;
+    margin-bottom: 16px;
+    padding: 18px 24px;
+    align-items: flex-start;
+    justify-content: center;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    border-width: 0;
+}
+
+.game-mode-button-turnbased {
+    -unity-background-image-tint-color: rgba(255, 247, 208, 0.98);
+}
+
+.game-mode-button-host {
+    -unity-background-image-tint-color: rgba(210, 232, 255, 0.98);
+}
+
+.game-mode-button-client {
+    -unity-background-image-tint-color: rgba(255, 220, 220, 0.98);
+}
+
+.game-mode-button-online {
+    -unity-background-image-tint-color: rgba(226, 247, 224, 0.98);
+}
+
+.game-mode-button-testing {
+    -unity-background-image-tint-color: rgba(235, 232, 255, 0.98);
+}
+
+.game-mode-button-guide {
+    -unity-background-image-tint-color: rgba(255, 239, 198, 0.98);
+}
+
+.game-mode-button-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 28px;
+    color: rgb(47, 47, 47);
+    margin-bottom: 8px;
+    align-self: center;
+}
+
+.game-mode-section-label {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 22px;
+    color: rgb(61, 61, 61);
+    -unity-text-align: middle-center;
+    margin-bottom: 10px;
+}
+
+.game-mode-city-section {
+    display: none;
+    margin-top: 4px;
+    margin-bottom: 14px;
+}
+
+.city-select-row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    margin-bottom: 0;
+}
+
+.city-select-button {
+    width: 46%;
+    min-height: 116px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 14px 16px;
+    justify-content: center;
+    align-items: center;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    border-width: 0;
+}
+
+.city-select-freehaven {
+    -unity-background-image-tint-color: rgba(214, 232, 255, 0.98);
+}
+
+.city-select-citadel {
+    -unity-background-image-tint-color: rgba(255, 214, 214, 0.98);
+}
+
+.city-select-active {
+    scale: 1.04 1.04;
+}
+
+.city-select-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 22px;
+    color: rgb(47, 47, 47);
+    -unity-text-align: middle-center;
+    margin-bottom: 6px;
+}
+
+.city-select-copy {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 18px;
+    color: rgb(77, 69, 59);
+    -unity-text-align: middle-center;
+    white-space: normal;
+}
+
+.game-mode-button-copy {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 22px;
+    color: rgb(77, 69, 59);
+    white-space: normal;
+    align-self: center;
+}
+
+.game-mode-install-button {
+    align-self: center;
+    min-height: 48px;
+    padding: 8px 22px;
+    margin-top: 2px;
+    background-image: url("project://database/Assets/UI/Sprites/paper_scrap_button.png?fileID=-8829611685367023878&guid=b54b938001224db4c95b5661f0dd607a&type=3#paper_scrap_button_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.94);
+    border-width: 0;
+}
+
+.game-mode-install-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 18px;
+    color: rgb(61, 61, 61);
+    -unity-text-align: middle-center;
+}
+
+.arena-selection-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(245, 239, 214, 0.9);
+    padding: 34px;
+    display: none;
+}
+
+.arena-selection-panel {
+    width: 900px;
+    max-width: 94%;
+    padding: 32px;
+    align-items: stretch;
+    background-image: url("project://database/Assets/UI/Sprites/postit_note_yellow.png?fileID=-7798892719133297459&guid=43bc4a074f4aeb148989bd1aaa481925&type=3#postit_note_yellow_0");
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+.arena-selection-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 44px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-center;
+    margin-bottom: 10px;
+}
+
+.arena-selection-status {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 25px;
+    color: rgb(196, 54, 54);
+    -unity-text-align: middle-center;
+    min-height: 42px;
+    margin-bottom: 18px;
+    white-space: normal;
+}
+
+.arena-choice-row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.arena-choice-card {
+    width: 360px;
+    height: 520px;
+    margin-left: 18px;
+    margin-right: 18px;
+    padding: 18px;
+    align-items: center;
+    justify-content: flex-start;
+    border-width: 4px;
+    border-radius: 14px;
+    border-color: rgba(51, 51, 51, 0.38);
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.96);
+}
+
+.arena-choice-local-vote {
+    border-color: rgb(64, 123, 220);
+    scale: 1.03 1.03;
+}
+
+.arena-choice-enemy-vote {
+    border-color: rgb(212, 74, 74);
+}
+
+.arena-choice-preview {
+    width: 100%;
+    height: 330px;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgba(51, 51, 51, 0.45);
+    margin-bottom: 16px;
+    -unity-background-scale-mode: scale-and-crop;
+}
+
+.arena-preview-freehaven-garden {
+    background-image: url("project://database/Assets/UI/Sprites/other/freehaven_garden.png?fileID=1258273666007603836&guid=b4b988ed594c3ce49957b2e63265daf8&type=3#freehaven_garden_0");
+}
+
+.arena-preview-citadel-training {
+    background-image: url("project://database/Assets/UI/Sprites/other/citadel_training_grounds.png?fileID=-9181578502624854077&guid=c868d43ef600a9246a6f8c0704bc0044&type=3#citadel_training_grounds_0");
+}
+
+.arena-choice-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 25px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-center;
+    white-space: normal;
+    min-height: 68px;
+}
+
+.arena-choice-copy {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 20px;
+    color: rgb(77, 69, 59);
+    -unity-text-align: middle-center;
+    white-space: normal;
+}
+
+.reconnect-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(245, 239, 214, 0.94);
+    padding: 48px;
+    display: none;
+}
+
+.pile-viewer-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(43, 39, 32, 0.34);
+    display: none;
+    padding: 38px;
+}
+
+.pile-viewer-panel {
+    width: 760px;
+    max-width: 92%;
+    max-height: 82%;
+    padding: 26px;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.97);
+}
+
+.war-shop-panel {
+    width: 900px;
+    max-width: 94%;
+}
+
+.encyclopedia-panel {
+    width: 960px;
+    max-width: 95%;
+    max-height: 86%;
+}
+
+.pile-viewer-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.pile-viewer-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 34px;
+    color: rgb(51, 51, 51);
+}
+
+.pile-viewer-close-button {
+    width: 58px;
+    height: 50px;
+    font-size: 22px;
+    color: rgb(188, 42, 42);
+    background-image: url("project://database/Assets/UI/Sprites/postit_note_yellow.png?fileID=-7798892719133297459&guid=43bc4a074f4aeb148989bd1aaa481925&type=3#postit_note_yellow_0");
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+.pile-viewer-scroll {
+    max-height: 720px;
+    overflow: hidden;
+}
+
+.pile-viewer-scroll .unity-scroller,
+.pile-viewer-scroll .unity-scroll-view__vertical-scroller,
+.pile-viewer-scroll .unity-scroll-view__horizontal-scroller {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    min-width: 0;
+}
+
+.pile-viewer-scroll .unity-scroll-view__content-viewport {
+    overflow: hidden;
+}
+
+.pile-viewer-scroll .unity-scroll-view__content-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 4px;
+    padding-bottom: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.encyclopedia-tab-strip {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.encyclopedia-tab-button {
+    min-width: 120px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-image: none;
+    background-color: rgba(245, 239, 214, 0.95);
+    border-width: 2px;
+    border-color: rgba(69, 58, 46, 0.45);
+    border-radius: 12px;
+    color: rgb(66, 52, 39);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 18px;
+    -unity-text-align: middle-center;
+}
+
+.encyclopedia-tab-button-active {
+    background-color: rgba(255, 238, 179, 1);
+    border-color: rgba(66, 52, 39, 0.72);
+}
+
+.encyclopedia-tab-button-inactive {
+    background-color: rgba(239, 231, 208, 0.88);
+}
+
+.encyclopedia-scroll {
+    max-height: 520px;
+}
+
+.encyclopedia-content {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+}
+
+.encyclopedia-section-card {
+    width: 100%;
+    padding: 18px 20px 20px 20px;
+    background-color: rgba(255, 252, 242, 0.92);
+    border-width: 2px;
+    border-color: rgba(69, 58, 46, 0.28);
+    border-radius: 14px;
+}
+
+.encyclopedia-section-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 28px;
+    color: rgb(39, 39, 39);
+    margin-bottom: 12px;
+    -unity-text-align: upper-left;
+}
+
+.encyclopedia-section-body {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 22px;
+    color: rgb(67, 59, 47);
+    white-space: normal;
+    -unity-text-align: upper-left;
+    line-height: 28px;
+    padding-top: 6px;
+}
+
+.pile-card-empty {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 24px;
+    color: rgb(62, 57, 49);
+    -unity-text-align: middle-center;
+    white-space: normal;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.pile-card-thumbnail-shell {
+    width: 210px;
+    height: 304px;
+}
+
+.pile-card-thumbnail:hover {
+    scale: 1;
+    translate: 0 0;
+}
+
+.reconnect-panel {
+    width: 680px;
+    max-width: 90%;
+    padding: 42px 36px;
+    align-items: center;
+    background-image: url("project://database/Assets/UI/Sprites/postit_note_yellow.png?fileID=-7798892719133297459&guid=43bc4a074f4aeb148989bd1aaa481925&type=3#postit_note_yellow_0");
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+.reconnect-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 42px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-center;
+    margin-bottom: 14px;
+    white-space: normal;
+}
+
+.reconnect-message {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 26px;
+    color: rgb(92, 76, 61);
+    -unity-text-align: middle-center;
+    white-space: normal;
+    min-height: 64px;
+    margin-bottom: 14px;
+}
+
+.reconnect-countdown {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 86px;
+    color: rgb(200, 79, 79);
+    -unity-text-align: middle-center;
+    margin-bottom: 18px;
+}
+
+.reconnect-back-button {
+    min-width: 300px;
+    min-height: 82px;
+    justify-content: center;
+    align-items: center;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 220, 220, 0.98);
+    border-width: 0;
+}
+
+.reconnect-back-button-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 26px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-center;
+}
+
+.match-end-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(43, 39, 32, 0.42);
+    padding: 48px;
+    display: none;
+}
+
+.match-end-panel {
+    width: 720px;
+    max-width: 92%;
+    padding: 44px 40px;
+    align-items: center;
+    background-image: url("project://database/Assets/UI/Sprites/postit_note_yellow.png?fileID=-7798892719133297459&guid=43bc4a074f4aeb148989bd1aaa481925&type=3#postit_note_yellow_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 244, 214, 0.98);
+}
+
+.match-end-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 50px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-center;
+    margin-bottom: 12px;
+}
+
+.match-end-winner {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 36px;
+    color: rgb(196, 54, 54);
+    -unity-text-align: middle-center;
+    white-space: normal;
+    margin-bottom: 14px;
+}
+
+.match-end-message {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 28px;
+    color: rgb(77, 69, 59);
+    -unity-text-align: middle-center;
+    white-space: normal;
+    min-height: 64px;
+    margin-bottom: 24px;
+}
+
+.match-end-back-button {
+    min-width: 300px;
+    min-height: 82px;
+    justify-content: center;
+    align-items: center;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(210, 232, 255, 0.98);
+    border-width: 0;
+}
+
+.match-end-back-button-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 28px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-center;
+}
+
 .hud-container {
-    transition-property: opacity, translate;
+    transition-property: opacity, translate, max-height, padding-top, padding-bottom, margin-top, margin-bottom;
     transition-duration: 0.3s;
     transition-timing-function: ease-out-back;
     opacity: 1;
     translate: 0 0;
+    overflow: hidden;
 }
 
-/* Slide Top HUD Up & Collapse */
 #top-hud.hud-hidden {
     opacity: 0;
-    translate: 0 -350px;
-    display: none; /* Collapse layout space so play area expands to full screen height */
+    translate: 0 -120px;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-/* Slide Bottom HUD Down & Collapse */
 #bottom-hud.hud-hidden {
     opacity: 0;
-    translate: 0 450px;
-    display: none; /* Collapse layout space so play area expands to full screen height */
+    translate: 0 180px;
+    max-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
 }
 
-/* Top HUD Layout */
 .top-hud-bar {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 140px;
-    padding: 10px;
-    flex-shrink: 0; /* Prevent top HUD from squishing */
+    max-height: 140px;
+    padding: 10px 36px;
+    flex-shrink: 0;
 }
 
-/* Stats Badges */
 .stat-badge {
     flex-direction: row;
     align-items: center;
-    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
     -unity-background-image-tint-color: rgba(255, 255, 255, 0.96);
-    border-width: 0px; /* Texture has wobbly sketchy outlines built-in */
+    border-width: 0;
     padding: 14px 24px;
     min-width: 180px;
     justify-content: center;
@@ -70,49 +865,316 @@
 }
 
 .stat-label {
-    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
     -unity-font-definition: initial;
     font-size: 32px;
-    color: #333333;
+    color: rgb(51, 51, 51);
     -unity-font-style: bold;
+    transition-property: color;
+    transition-duration: 0.18s;
+}
+
+.treasury-income-label {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 28px;
+    color: rgb(52, 132, 70);
+    -unity-font-style: bold;
+    -unity-text-align: middle-left;
+    margin-left: 14px;
+    margin-top: 0;
+    min-width: 48px;
 }
 
 .heart-icon {
-    background-image: url("project://database/Assets/UI/Sprites/heart_doodle_filled.png");
+    background-image: url("project://database/Assets/UI/Sprites/heart_doodle_filled.png?fileID=2287624333922538750&guid=83784638aba3a1f4ea585fa738aebfdc&type=3#heart_doodle_filled_0");
 }
 
 .coin-icon {
-    background-image: url("project://database/Assets/UI/Sprites/coin_doodle.png");
+    background-image: url("project://database/Assets/UI/Sprites/coin_doodle.png?fileID=3103737648492529667&guid=cb1c6eb7ead5e034eb6cf7da1a17e5e8&type=3#coin_doodle_0");
 }
 
-/* Cardboard Style Nameplates */
 .nameplate {
-    background-image: url("project://database/Assets/UI/Sprites/paper_scrap_button.png");
+    background-image: url("project://database/Assets/UI/Sprites/paper_scrap_button.png?fileID=-8829611685367023878&guid=b54b938001224db4c95b5661f0dd607a&type=3#paper_scrap_button_0");
     -unity-background-scale-mode: stretch-to-fill;
-    padding: 15px 30px;
+    padding: 14px 24px;
     justify-content: center;
     align-items: center;
-    width: 380px;
+    width: 400px;
+    min-height: 86px;
     flex-shrink: 0;
-}
-
-.nameplate-text {
-    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
-    -unity-font-definition: initial;
-    font-size: 32px;
-    color: #333333;
-    -unity-text-align: center;
-    white-space: nowrap;
     overflow: hidden;
 }
 
-/* Bottom HUD Control Center */
+.nameplate-inline-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    min-height: 52px;
+}
+
+.round-badge-shell {
+    width: 72px;
+    min-width: 72px;
+    min-height: 72px;
+    justify-content: center;
+    align-items: center;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.96);
+    margin-left: 10px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.round-badge-image {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    background-color: rgba(255, 255, 255, 0);
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.round-badge-hidden .round-badge-image {
+    display: none;
+}
+
+.nameplate-side-slot {
+    width: 100px;
+    min-width: 100px;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nameplate-side-slot-left {
+    margin-right: 2px;
+}
+
+.nameplate-side-slot-right {
+    margin-left: 2px;
+}
+
+.nameplate-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 32px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    transition-property: color;
+    transition-duration: 0.18s;
+}
+
+.city-under-attack {
+    color: rgb(214, 58, 58);
+}
+
+.city-health-under-attack {
+    color: rgb(214, 58, 58);
+}
+
+.city-header-group {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 18px;
+}
+
+.city-header-active-seat-one {
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(112, 175, 255, 0.82);
+}
+
+.city-header-active-seat-two {
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 163, 163, 0.82);
+}
+
+.seat-theme-one {
+    color: rgb(39, 95, 184);
+}
+
+.seat-theme-two {
+    color: rgb(200, 79, 79);
+}
+
+.city-state-badge {
+    margin-left: 6px;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.92);
+    min-width: 82px;
+    padding: 5px 8px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative;
+    transition-property: opacity, scale;
+    transition-duration: 0.18s;
+    transition-timing-function: ease-out;
+    opacity: 1;
+    scale: 1 1;
+}
+
+.city-state-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-center;
+    white-space: nowrap;
+}
+
+.city-state-hidden {
+    opacity: 0;
+    scale: 0.92 0.92;
+}
+
+.city-state-visible {
+    opacity: 1;
+    scale: 1 1;
+}
+
+.city-state-deploy {
+    -unity-background-image-tint-color: rgba(255, 249, 210, 0.98);
+}
+
+.city-state-attack {
+    -unity-background-image-tint-color: rgba(255, 218, 188, 0.98);
+}
+
+.city-state-move {
+    -unity-background-image-tint-color: rgba(216, 232, 255, 0.98);
+}
+
+.city-state-struggle {
+    -unity-background-image-tint-color: rgba(255, 206, 206, 0.98);
+}
+
 .bottom-hud-container {
     flex-direction: column;
     width: 100%;
     align-items: center;
     justify-content: flex-end;
-    flex-shrink: 0; /* Prevent bottom HUD from squishing */
+    max-height: 700px;
+    overflow: visible;
+    flex-shrink: 0;
+}
+
+.ability-preview-shell {
+    width: 72%;
+    height: 96px;
+    min-height: 96px;
+    max-height: 96px;
+    margin-bottom: 8px;
+    padding: 8px 18px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 250, 0.9);
+    border-width: 3px;
+    border-color: rgba(51, 51, 51, 0.66);
+    border-radius: 12px;
+    display: flex;
+    overflow: hidden;
+    transition-property: opacity;
+    transition-duration: 0.18s;
+}
+
+.ability-preview-shell.ability-preview-empty {
+    opacity: 0;
+}
+
+.ability-preview-shell.ability-preview-round {
+    background-color: rgba(255, 255, 255, 0.82);
+    border-color: rgba(51, 51, 51, 0.52);
+}
+
+.ability-preview-shell.ability-preview-status {
+    background-color: rgba(255, 255, 250, 0.96);
+    border-color: rgba(45, 55, 72, 0.76);
+}
+
+.ability-preview-shell.ability-preview-ability {
+    background-color: rgba(255, 255, 255, 0.78);
+    border-color: rgba(51, 51, 51, 0.55);
+}
+
+.ability-preview-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 22px;
+    color: rgb(37, 50, 56);
+    -unity-text-align: middle-center;
+    white-space: normal;
+    overflow: visible;
+    width: 100%;
+    transition-property: translate;
+    transition-duration: 0.08s;
+}
+
+.ability-preview-shell.ability-preview-status .ability-preview-text {
+    font-size: 22px;
+    color: rgb(37, 50, 56);
+}
+
+.ability-preview-shell.ability-preview-round .ability-preview-text {
+    font-size: 22px;
+    color: rgb(35, 35, 35);
+}
+
+.ability-preview-shell.ability-preview-ability .ability-preview-text {
+    font-size: 24px;
+}
+
+.phase-timer-group {
+    width: 100%;
+    min-height: 12px;
+    flex-shrink: 0;
+    padding-left: 36px;
+    padding-right: 36px;
+    margin-top: 2px;
+    margin-bottom: 6px;
+    display: flex;
+}
+
+.phase-timer-label {
+    display: none;
+}
+
+.phase-timer-shell {
+    width: 100%;
+    height: 10px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.78);
+    border-width: 2px;
+    border-color: rgba(51, 51, 51, 0.35);
+    overflow: hidden;
+    display: none;
+}
+
+.phase-timer-fill {
+    height: 100%;
+    width: 100%;
+    border-radius: 999px;
+}
+
+.phase-timer-fill-blue {
+    background-color: rgba(42, 98, 195, 0.92);
+}
+
+.phase-timer-fill-red {
+    background-color: rgba(220, 68, 68, 0.92);
 }
 
 .stats-row {
@@ -120,146 +1182,471 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 50px; /* Raised player stability/treasury row up */
+    margin-bottom: 12px;
+    padding-left: 36px;
+    padding-right: 36px;
 }
 
 .controls-row {
     flex-direction: row;
     width: 100%;
-    height: 300px; /* Constraint to 300px to free up space for player HUD and play area */
+    height: 326px;
     justify-content: space-between;
     align-items: flex-end;
+    padding-left: 108px;
+    padding-right: 36px;
 }
 
-/* Deck Container */
+.war-shop-dock {
+    width: 210px;
+    height: 324px;
+    margin-left: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    align-self: flex-end;
+    flex-shrink: 0;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 248, 208, 0.97);
+    border-width: 0;
+    opacity: 1;
+}
 
+.war-shop-hidden {
+    display: none;
+}
 
+.war-shop-dock-disabled {
+    opacity: 0.52;
+}
 
+.war-shop-dock-body {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
-/* Hand ScrollView Carousel */
+.war-shop-dock-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 22px;
+    color: rgb(45, 45, 45);
+    -unity-text-align: middle-center;
+    white-space: normal;
+    margin-bottom: 10px;
+}
+
+.war-shop-dock-copy {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 18px;
+    color: rgb(98, 76, 53);
+    -unity-text-align: middle-center;
+    white-space: normal;
+}
+
+.generated-art-warshop-field-medic {
+    background-image: url("project://database/Assets/UI/Sprites/new/new/war_items/field_medic_doodle.png?fileID=2800000&guid=9500a7142579def49ac3cee60e9fc045&type=3#field_medic_doodle");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.generated-art-warshop-bomb-drop {
+    background-image: url("project://database/Assets/UI/Sprites/new/new/war_items/bomb_drop_doodle.png?fileID=2800000&guid=28cab50e9f9880d4f9cf6bf0fca14947&type=3#bomb_drop_doodle");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.generated-art-warshop-frontier-claim {
+    background-image: url("project://database/Assets/UI/Sprites/new/new/war_items/frontier_claim_doodle.png?fileID=2800000&guid=da4b08be54141dd499ca0d3e2cc39cd2&type=3#frontier_claim_doodle");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.generated-art-warshop-rebuild-order {
+    background-image: url("project://database/Assets/UI/Sprites/new/new/war_items/rebuild_order_doodle.png?fileID=2800000&guid=00714194111b70b4fb835a482d445793&type=3#rebuild_order_doodle");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
 .hand-carousel-scroll {
     flex-grow: 1;
-    height: 290px;
-    margin-left: 0px; /* Starts from absolute left edge of screen */
+    height: 326px;
+    margin-left: 0;
     margin-right: 15px;
-    margin-bottom: 10px; /* Align baseline */
-    overflow: visible; /* Prevents card top clipping */
+    margin-bottom: 10px;
+    overflow: visible;
 }
 
-/* Ensure inner scroll view viewports don't clip cards when they hover/translate up */
-.hand-carousel-scroll .unity-scroll-view__content-viewport,
+.hand-carousel-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.hand-carousel-inactive-turn {
+    opacity: 0.56;
+}
+
+.hand-carousel-scroll .unity-scroll-view__content-viewport {
+    overflow: visible;
+    padding-top: 4px;
+    padding-bottom: 0;
+}
+
 .hand-carousel-scroll .unity-scroll-view__content-container {
     overflow: visible;
 }
 
-/* Contextual Action Buttons */
 .contextual-bar {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    max-height: 120px;
     margin-bottom: 20px;
-    transition-property: opacity, translate;
+    transition-property: opacity, translate, max-height, margin-bottom;
     transition-duration: 0.25s;
     opacity: 1;
     translate: 0 0;
+    overflow: hidden;
+}
+
+.contextual-bar-hidden {
+    opacity: 0;
+    translate: 0 24px;
+    max-height: 0;
+    margin-bottom: 0;
+    pointer-events: none;
 }
 
 .contextual-btn {
-    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
     -unity-font-definition: initial;
     font-size: 32px;
-    color: #333333;
+    color: rgb(51, 51, 51);
     border-width: 4px;
-    border-color: #333333;
+    border-color: rgb(51, 51, 51);
     border-radius: 10px;
     margin: 0 12px;
     padding: 16px 32px;
-    background-color: #FFE033;
+    background-color: rgb(255, 224, 51);
 }
 
 .contextual-btn:hover {
     background-color: white;
 }
 
-#deploy-btn {
-    background-color: #33FF57;
-}
-
 #move-btn {
-    background-color: #FFA500;
+    background-color: rgb(255, 165, 0);
 }
 
 #attack-btn {
-    background-color: #EE3333;
+    background-color: rgb(238, 51, 51);
     color: white;
 }
 
-/* End Turn Button */
-
-
-
-
-
-
-/* Card Thumbnail Styles (in hand) */
 .card-thumbnail {
     width: 210px;
-    height: 290px;
-    transition-property: scale, translate;
+    height: 318px;
+    transition-property: scale, translate, opacity;
     transition-duration: 0.15s;
+}
+
+.card-thumbnail.card-thumbnail-shaking {
+    transition-duration: 0.055s;
+}
+
+.card-thumbnail.hand-card-enter-pre {
+    opacity: 0;
+    translate: -140px 0;
+    scale: 0.82;
+}
+
+.card-thumbnail.hand-card-enter-active {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1.04;
+}
+
+.card-thumbnail.hand-card-exit-active {
+    opacity: 0;
+    translate: -160px 18px;
+    scale: 0.78;
+}
+
+.card-thumbnail.seat-theme-one .card-glow-outline {
+    -unity-background-image-tint-color: rgba(78, 134, 224, 0.42);
+}
+
+.card-thumbnail.seat-theme-two .card-glow-outline {
+    -unity-background-image-tint-color: rgba(224, 102, 102, 0.42);
+}
+
+.card-thumbnail.seat-theme-one .card-body {
+    border-width: 3px;
+    border-color: rgba(78, 134, 224, 0.62);
+}
+
+.card-thumbnail.seat-theme-two .card-body {
+    border-width: 3px;
+    border-color: rgba(224, 102, 102, 0.62);
+}
+
+.card-thumbnail.seat-theme-one .card-stats-bar {
+    background-color: rgba(129, 180, 255, 0.28);
+}
+
+.card-thumbnail.seat-theme-two .card-stats-bar {
+    background-color: rgba(255, 152, 152, 0.28);
+}
+
+.card-thumbnail-inactive-turn {
+    opacity: 0.52;
+}
+
+.card-thumbnail-inactive-turn:hover {
+    scale: 1;
+    translate: 0 0;
 }
 
 .card-thumbnail:hover {
     scale: 1.15;
     translate: 0 -25px;
-    z-index: 99; /* Force hovered card to draw on top of adjacent cards/HUD items */
+    z-index: 99;
 }
 
 .thumbnail-title {
-    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
     -unity-font-definition: initial;
-    font-size: 13px;
-    color: #333333;
-    -unity-text-align: center;
+    font-size: 20px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-center;
     -unity-font-style: bold;
     white-space: normal;
-    height: 40px;
+    width: 100%;
+    height: 44px;
     justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    flex-shrink: 0;
+    border-width: 0;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.thumbnail-copy-zone {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    padding-top: 2px;
+    flex-shrink: 0;
+    border-width: 0;
+    background-color: rgb(255, 255, 255);
+    z-index: 2;
+}
+
+.thumbnail-status-row {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: 116px;
+    min-width: 116px;
+    height: 34px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    z-index: 12;
+    flex-shrink: 0;
+}
+
+.thumbnail-status-icon {
+    width: 32px;
+    height: 32px;
+    border-width: 2px;
+    border-color: rgba(51, 51, 51, 0.88);
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.92);
+    -unity-background-scale-mode: scale-to-fit;
+    color: rgb(51, 51, 51);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 12px;
+    -unity-text-align: upper-right;
+    padding-top: 1px;
+    padding-right: 3px;
+}
+
+.thumbnail-lock-icon {
+    background-color: rgba(255, 242, 189, 0.94);
+}
+
+.thumbnail-ability-icon {
+    background-color: rgba(224, 242, 254, 0.94);
+}
+
+.thumbnail-item-icon {
+    background-color: rgba(254, 243, 199, 0.94);
+}
+
+.status-icon-has-art {
+    background-color: rgba(255, 255, 255, 0.96);
+}
+
+.status-icon-lock {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/lock_symbol.png?fileID=21300000&guid=58dc2fa2d3d5e4e4698cf7c5eee0d5e1&type=3#lock_symbol");
+}
+
+.status-icon-gather {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/gather_symbol.png?fileID=21300000&guid=2991d7d5ff4c553469aa0c702c3823b6&type=3#gather_symbol");
+}
+
+.status-icon-siphon {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/siphon_symbol.png?fileID=21300000&guid=9849a0997ce2f3742a99ddfbc0a3eaa2&type=3#siphon_symbol");
+}
+
+.status-icon-discount {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/discount_symbol.png?fileID=21300000&guid=0260becf32c0df345859431e7dd2f8f8&type=3#discount_symbol");
+}
+
+.status-icon-strike {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/strike_symbol.png?fileID=21300000&guid=409ab674ccb712942bda1f7f52be8950&type=3#strike_symbol");
+}
+
+.status-icon-shatter {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/shatter_symbol.png?fileID=21300000&guid=bd1b94c0f699d064481d53217de77371&type=3#shatter_symbol");
+}
+
+.status-icon-breach {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/breach_symbol.png?fileID=21300000&guid=929e068613190f642905d1bf7307cc25&type=3#breach_symbol");
+}
+
+.status-icon-intercept {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/intercept_symbol.png?fileID=21300000&guid=93fa0b2d73a31b043a3302c10a0b3500&type=3#intercept_symbol");
+}
+
+.status-icon-secure {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/secure_symbol.png?fileID=21300000&guid=234864f46a8be4840be628a34bddc33c&type=3#secure_symbol");
+}
+
+.status-icon-reclaim {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/reclaim_symbol.png?fileID=21300000&guid=b9dad6dbe79b0844e89b0f7964aecec4&type=3#reclaim_symbol");
+}
+
+.status-icon-sprint {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/sprint_symbol.png?fileID=21300000&guid=3e11f6c3a0fd57a468c92cd7233902ab&type=3#sprint_symbol");
+}
+
+.status-icon-maneuver {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/maneuver_symbol.png?fileID=21300000&guid=e444cdce9814e454d8a506225eb64d70&type=3#maneuver_symbol");
+}
+
+.status-icon-provoke {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/provoke_symbol.png?fileID=21300000&guid=014c43e4ea5af9f4fb4ab71c5345dd65&type=3#provoke_symbol");
+}
+
+.status-icon-silence {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/silence_symbol.png?fileID=21300000&guid=abbf40c1d1dbf8f41860ea6ea538ffaf&type=3#silence_symbol");
+}
+
+.status-icon-garrison {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/garrison_symbol.png?fileID=21300000&guid=ff3c3d6e55a25084bbe18d3721798acf&type=3#garrison_symbol");
+}
+
+.status-icon-spawn {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/spawn_symbol.png?fileID=21300000&guid=c0820b6255624df43aa1b8cef3f4fc4d&type=3#spawn_symbol");
+}
+
+.status-icon-burn {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/burn_symbol.png?fileID=21300000&guid=da85cb170bc873f4884e9209381d1ba3&type=3#burn_symbol");
+}
+
+.status-icon-salvage {
+    background-image: url("project://database/Assets/UI/Sprites/abilities/salvage_symbol.png?fileID=21300000&guid=a3acd513a3ba41a4f9f3bc9423231d30&type=3#salvage_symbol");
 }
 
 .thumbnail-cost-badge {
     position: absolute;
     top: 4px;
     right: 4px;
-    background-color: #FFE033;
+    background-color: rgb(255, 224, 51);
     border-width: 2px;
-    border-color: #333333;
+    border-color: rgb(51, 51, 51);
     border-radius: 50%;
-    width: 46px; /* Larger Cost Badge Width */
-    height: 46px; /* Larger Cost Badge Height */
+    width: 46px;
+    height: 46px;
     justify-content: center;
     align-items: center;
     z-index: 10;
 }
 
-.thumbnail-cost-text {
-    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+.thumbnail-type-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    min-width: 92px;
+    height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.96);
+    border-width: 2px;
+    border-color: rgba(51, 51, 51, 0.9);
+    border-radius: 16px;
+    z-index: 10;
+}
+
+.thumbnail-type-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
     -unity-font-definition: initial;
-    font-size: 26px; /* Larger Cost text */
-    color: #333333;
+    font-size: 13px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    white-space: nowrap;
+}
+
+.thumbnail-cost-badge-discounted {
+    background-color: rgb(145, 214, 116);
+}
+
+.thumbnail-cost-badge-unaffordable {
+    background-color: rgb(217, 82, 82);
+}
+
+.thumbnail-cost-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
+    -unity-font-definition: initial;
+    font-size: 26px;
+    color: rgb(51, 51, 51);
     -unity-font-style: bold;
 }
 
-.thumbnail-art {
-    width: 165px; /* Larger Art Width */
-    height: 150px; /* Larger Art Height */
-    margin: 5px 0;
-    border-width: 2px;
-    border-color: #333333;
-    background-color: #fafafa;
+.thumbnail-cost-text-discounted {
+    color: rgb(24, 99, 43);
 }
 
-/* Detailed Inspector Overlay */
+.thumbnail-cost-text-unaffordable {
+    color: rgb(255, 247, 247);
+}
+
+.thumbnail-art {
+    width: 165px;
+    height: 138px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border-width: 2px;
+    border-color: rgb(51, 51, 51);
+    background-color: rgb(250, 250, 250);
+    -unity-background-scale-mode: scale-to-fit;
+    flex-shrink: 0;
+}
+
 .overlay-container {
     position: absolute;
     left: 0;
@@ -274,13 +1661,13 @@
     opacity: 1;
 }
 
-.overlay-container.hidden {
+.overlay-container.overlay-hidden {
     opacity: 0;
     pointer-events: none;
 }
 
 .inspector-card {
-    background-image: url("project://database/Assets/UI/Sprites/postit_note_yellow.png");
+    background-image: url("project://database/Assets/UI/Sprites/postit_note_yellow.png?fileID=-7798892719133297459&guid=43bc4a074f4aeb148989bd1aaa481925&type=3#postit_note_yellow_0");
     -unity-background-scale-mode: stretch-to-fill;
     width: 680px;
     height: 1000px;
@@ -295,8 +1682,8 @@
     background-color: transparent;
     border-width: 0;
     font-size: 56px;
-    color: #EE3333;
-    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    color: rgb(238, 51, 51);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
     -unity-font-definition: initial;
 }
 
@@ -305,19 +1692,19 @@
 }
 
 .inspector-title {
-    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
     -unity-font-definition: initial;
     font-size: 56px;
-    color: #333333;
+    color: rgb(51, 51, 51);
     -unity-text-align: center;
     margin-bottom: 10px;
 }
 
 .inspector-type {
-    -unity-font: url("project://database/Assets/UI/Fonts/IndieFlower-Regular.ttf");
+    -unity-font: url("project://database/Assets/UI/Fonts/IndieFlower-Regular.ttf?fileID=12800000&guid=650bcc666e3e51f45a5141f113b94c59&type=3#IndieFlower-Regular");
     -unity-font-definition: initial;
     font-size: 30px;
-    color: #0033AA;
+    color: rgb(0, 51, 170);
     -unity-text-align: center;
     -unity-font-style: italic;
     margin-bottom: 20px;
@@ -334,7 +1721,7 @@
     width: 260px;
     height: 360px;
     border-width: 4px;
-    border-color: #333333;
+    border-color: rgb(51, 51, 51);
     background-color: white;
     -unity-background-scale-mode: scale-to-fit;
 }
@@ -346,307 +1733,1165 @@
 
 .inspector-stat-row {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .inspector-stat-icon {
     width: 44px;
     height: 44px;
     margin-right: 15px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.attack-icon {
+    background-image: url("project://database/Assets/UI/Sprites/other/attack_symbol.png?fileID=4281063472632514036&guid=03bd104811ca35042b64c3cf722100a2&type=3#attack_symbol_1");
+}
+
+.movement-icon {
+    background-image: url("project://database/Assets/UI/Sprites/other/movement_symbol.png?fileID=-4440907445663573874&guid=0b7435bb0b140b1438a96bdfaf5544f1&type=3#movement_symbol_0");
+}
+
+.inspector-bonus-icon {
+    background-image: url("project://database/Assets/UI/Sprites/other/bonus_symbol.png?fileID=2047030959319328006&guid=d92785d3e5f868941ba51788f460c530&type=3#bonus_symbol_0");
 }
 
 .inspector-stat-label {
-    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
     -unity-font-definition: initial;
     font-size: 36px;
-    color: #333333;
+    color: rgb(51, 51, 51);
+    white-space: normal;
+    min-width: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.inspector-range-label {
+    font-size: 24px;
+    white-space: normal;
 }
 
 .inspector-ability-container {
     flex-grow: 1;
+    min-height: 0;
     background-color: rgba(255, 255, 255, 0.6);
     border-width: 3px;
-    border-color: #333333;
+    border-color: rgb(51, 51, 51);
     border-radius: 8px;
     padding: 20px;
+    overflow: hidden;
+}
+
+.inspector-ability-scroll {
+    flex-grow: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.inspector-ability-scroll .unity-scroller,
+.inspector-ability-scroll .unity-scroll-view__vertical-scroller,
+.inspector-ability-scroll .unity-scroll-view__horizontal-scroller {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    min-width: 0;
+}
+
+.inspector-ability-scroll .unity-scroll-view__content-viewport {
+    overflow: hidden;
+}
+
+.inspector-ability-scroll .unity-scroll-view__content-container {
+    padding-right: 6px;
 }
 
 .inspector-ability-text {
-    -unity-font: url("project://database/Assets/UI/Fonts/IndieFlower-Regular.ttf");
+    -unity-font: url("project://database/Assets/UI/Fonts/IndieFlower-Regular.ttf?fileID=12800000&guid=650bcc666e3e51f45a5141f113b94c59&type=3#IndieFlower-Regular");
     -unity-font-definition: initial;
-    font-size: 32px;
-    color: #333333;
+    font-size: 28px;
+    color: rgb(51, 51, 51);
     white-space: normal;
 }
 
-/* Hide horizontal scroller bars completely for gesture swipe or scroll wheel usage */
+.inspector-rule-list {
+    flex-direction: column;
+    gap: 14px;
+}
+
+.inspector-rule-row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.inspector-rule-icon {
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+    margin-top: 2px;
+    border-width: 2px;
+    border-color: rgba(51, 51, 51, 0.88);
+    border-radius: 19px;
+    background-color: rgba(255, 255, 255, 0.95);
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.inspector-rule-copy {
+    flex-grow: 1;
+}
+
+.inspector-rule-title {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 24px;
+    color: rgb(24, 24, 24);
+    -unity-font-style: bold;
+    white-space: normal;
+}
+
+.inspector-rule-detail {
+    -unity-font: url("project://database/Assets/UI/Fonts/IndieFlower-Regular.ttf?fileID=12800000&guid=650bcc666e3e51f45a5141f113b94c59&type=3#IndieFlower-Regular");
+    -unity-font-definition: initial;
+    font-size: 26px;
+    color: rgb(24, 24, 24);
+    -unity-font-style: bold;
+    white-space: normal;
+    margin-top: 2px;
+    background-color: rgba(255, 255, 255, 0.28);
+    border-radius: 6px;
+    padding: 2px 4px;
+}
+
 .hand-carousel-scroll .unity-scroller {
     display: none;
     visibility: hidden;
     opacity: 0;
 }
 
-/* ScrollView Content Layout - Align cards to sit on the same bottom baseline */
 .hand-carousel-scroll .unity-scroll-view__content-container {
     flex-direction: row;
     align-items: flex-end;
-    padding-bottom: 0px; /* Sits flat on the bottom line */
-    height: 290px; /* Fixed height locks layout flow, preventing shifting when hover scales card */
-    overflow: visible; /* Let hovered card overflow top of list cleanly */
+    padding-bottom: 0;
+    height: 318px;
+    overflow: visible;
 }
 
-/* Play Area Board Scroll Container */
 .board-scroll-container {
     flex-grow: 1;
     width: 100%;
     height: 100%;
 }
 
+.board-scroll-container .unity-scroll-view__vertical-scroller {
+    width: 0;
+    min-width: 0;
+}
+
+.board-scroll-container .unity-scroll-view__horizontal-scroller {
+    height: 0;
+    min-height: 0;
+}
+
+.board-surface {
+    position: relative;
+    align-self: center;
+}
+
+.board-ownership-frame {
+    position: absolute;
+    left: -14px;
+    top: -14px;
+    right: -14px;
+    bottom: -14px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 8px;
+    border-radius: 22px;
+    opacity: 0.52;
+}
+
+.board-ownership-frame-seat-one {
+    border-color: rgba(92, 149, 235, 0.72);
+}
+
+.board-ownership-frame-seat-two {
+    border-color: rgba(231, 113, 113, 0.72);
+}
+
+.board-ownership-timer-layer {
+    position: absolute;
+    left: -14px;
+    top: -14px;
+    right: -14px;
+    bottom: -14px;
+    overflow: visible;
+}
+
+.board-ownership-timer-edge {
+    position: absolute;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.94);
+    opacity: 1;
+}
+
+.board-ownership-timer-seat-one .board-ownership-timer-edge {
+    background-color: rgba(58, 138, 255, 0.98);
+}
+
+.board-ownership-timer-seat-two .board-ownership-timer-edge {
+    background-color: rgba(255, 84, 84, 0.98);
+}
+
+.board-grid-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.board-effects-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.board-motion-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: visible;
+}
+
 .board-row {
     flex-direction: row;
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-start;
+    width: auto;
 }
 
 .board-tile {
-    width: 190px;
-    height: 190px;
-    margin: 12px;
-    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
-    -unity-background-scale-mode: stretch-to-fill;
+    width: 380px;
+    height: 320px;
+    margin: 8px;
     justify-content: center;
     align-items: center;
-    border-radius: 12px; /* Rounded tile corners */
-    overflow: hidden; /* Clips children to rounded corners */
+    border-radius: 12px;
+    overflow: hidden;
     border-width: 3px;
-    border-color: rgba(51, 51, 51, 0.25); /* Soft hand-drawn outline for empty tiles definition */
+    border-color: rgba(51, 51, 51, 0.25);
+    background-color: rgba(250, 250, 244, 0.72);
 }
 
-.enemy-tile {
-    -unity-background-image-tint-color: rgba(235, 110, 110, 0.35); /* Soft red enemy base tint */
+.tile-texture-layer {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 11px;
+    opacity: 0.42;
+    -unity-background-scale-mode: scale-and-crop;
 }
 
-.player-tile {
-    -unity-background-image-tint-color: rgba(110, 160, 235, 0.35); /* Soft blue player base tint */
+.tile-texture-bricks {
+    background-image: url("project://database/Assets/UI/Sprites/other/bricks_texture.png?fileID=2792834907834420253&guid=bf9fa4b9a24c95740937588d80ee156f&type=3#bricks_texture_0");
+    opacity: 0.38;
+}
+
+.tile-texture-grass {
+    background-image: url("project://database/Assets/UI/Sprites/other/grass_texture.png?fileID=5688822178732394706&guid=522a67b1da7c827409ea8e8a7de381a3&type=3#grass_texture_0");
+    opacity: 0.34;
+}
+
+.tile-area-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    opacity: 1;
+    background-color: rgba(255, 255, 250, 0.22);
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+.tile-variant-1 {
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly_1.png?fileID=5097605535704120065&guid=cb655adb90558d14785149023ee25292&type=3#card_base_wobbly_1_0");
+}
+
+.tile-variant-2 {
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly_2.png?fileID=4925174152398216312&guid=daa84d81e374bb442b1889d9ef8ed88c&type=3#card_base_wobbly_2_0");
+}
+
+.tile-variant-3 {
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly_3.png?fileID=7170055030173689609&guid=a2249be5c0add9c4f9ba5be0d06767e9&type=3#card_base_wobbly_3_0");
+}
+
+.tile-variant-4 {
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly_4.png?fileID=7475512138110055021&guid=8c58550593aedef4cb0a1b589186d19d&type=3#card_base_wobbly_4_0");
+}
+
+.seat-one-base-tile {
+    -unity-background-image-tint-color: rgba(110, 160, 235, 0.42);
+}
+
+.seat-two-base-tile {
+    -unity-background-image-tint-color: rgba(235, 110, 110, 0.42);
 }
 
 .neutral-tile {
-    -unity-background-image-tint-color: rgba(140, 225, 140, 0.22); /* Light opacity wobbly green grid */
+    -unity-background-image-tint-color: rgba(140, 225, 140, 0.3);
 }
 
 .tile-hp-text {
-    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
     -unity-font-definition: initial;
     font-size: 24px;
-    color: #EE3333;
+    color: rgb(238, 51, 51);
     -unity-font-style: bold;
     background-color: rgba(255, 255, 255, 0.85);
     border-width: 2px;
-    border-color: #333333;
+    border-color: rgb(51, 51, 51);
     border-radius: 4px;
     padding: 2px 8px;
 }
 
-/* Hide vertical scroller bars inside the board scroll view */
 .board-scroll-container .unity-scroller {
     display: none;
     visibility: hidden;
     opacity: 0;
 }
 
-/* Tile Stats Bar Layouts */
 .tile-stats-bar-bottom {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    padding: 4px 6px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-top-width: 3px;
-    border-top-color: #333333;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    align-items: center;
+    position: absolute;
+    left: 7px;
+    right: 7px;
+    bottom: 4px;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: auto;
+    min-height: 56px;
+    padding: 0;
+    background-color: transparent;
+    border-width: 0;
 }
 
-.tile-stats-bar-top {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    padding: 4px 6px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-bottom-width: 3px;
-    border-bottom-color: #333333;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+.tile-stats-base-only {
+    left: 0;
+    right: 0;
+    top: 53%;
+    bottom: auto;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+.tile-stats-base-only .tile-stat-text-left {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    background-color: rgba(255, 255, 255, 0.74);
+    border-radius: 5px;
+    padding: 1px 6px;
+    -unity-font-style: bold;
+}
+
+.tile-stats-base-only .tile-stat-text-right {
+    display: none;
 }
 
 .tile-stat-text-left {
-    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
     -unity-font-definition: initial;
-    font-size: 21px;
-    color: #EE3333; /* Red for HP */
+    font-size: 22px;
+    color: rgb(238, 51, 51);
+    -unity-text-align: middle-left;
+    background-color: rgba(255, 255, 255, 0.68);
+    border-radius: 4px;
+    padding: 0 4px;
+    margin: 0;
 }
 
 .tile-stat-text-right {
-    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    position: absolute;
+    left: 0;
+    bottom: 24px;
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
     -unity-font-definition: initial;
-    font-size: 21px;
-    color: #333333; /* Dark Grey for Attack */
+    font-size: 22px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-left;
+    background-color: rgba(255, 255, 255, 0.68);
+    border-radius: 4px;
+    padding: 0 4px;
+    margin: 0;
+}
+
+.tile-stat-right-cluster {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.tile-stats-theme-seat-one {
+    background-color: transparent;
+}
+
+.tile-stats-theme-seat-two {
+    background-color: transparent;
+}
+
+.tile-stats-theme-neutral {
+    background-color: transparent;
+}
+
+.tile-stats-theme-seat-one .tile-stat-text-right,
+.tile-stats-theme-seat-one .tile-lock-badge,
+.tile-stats-theme-seat-one .tile-status-badge {
+    color: rgb(33, 79, 153);
+}
+
+.tile-stats-theme-seat-two .tile-stat-text-right,
+.tile-stats-theme-seat-two .tile-lock-badge,
+.tile-stats-theme-seat-two .tile-status-badge {
+    color: rgb(169, 64, 64);
 }
 
 .tile-art-placeholder {
     flex-grow: 1;
     width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-/* Right-side Vertical Stack for Discard, Deck & Done */
+.tile-card-content {
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    right: 9px;
+    bottom: 9px;
+    width: auto;
+    height: auto;
+    justify-content: stretch;
+    align-items: stretch;
+    padding: 0;
+}
+
+.resolve-motion-proxy {
+    position: absolute;
+    overflow: visible;
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 0);
+    translate: 0 0;
+    opacity: 1;
+    scale: 1 1;
+    transition-property: translate, opacity, scale;
+    transition-duration: 0.34s;
+    transition-timing-function: ease-in-out;
+}
+
+.resolve-motion-proxy-move-active {
+    transition-duration: 0.46s;
+    transition-timing-function: ease-in-out;
+}
+
+.resolve-motion-proxy-attack-active {
+    transition-duration: 0.24s;
+    transition-timing-function: ease-in;
+}
+
+.resolve-motion-proxy-death-active {
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in;
+    opacity: 0;
+    scale: 0.84 0.84;
+}
+
+.resolve-motion-intent-badge {
+    top: 8px;
+}
+
+.resolve-motion-proxy .tile-card-content {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.resolve-motion-proxy .tile-art-placeholder {
+    border-radius: 12px;
+}
+
+.resolve-motion-proxy .tile-ownership-frame {
+    border-radius: 13px;
+}
+
+.resolve-motion-proxy .tile-selection-glow {
+    border-radius: 22px;
+}
+
+.tile-card-content-base-only {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.tile-card-art-window {
+    width: 82%;
+    height: 76%;
+    margin-left: 9%;
+    margin-right: 9%;
+    margin-top: 12%;
+    margin-bottom: 12%;
+    background-color: transparent;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.tile-card-art-align-bottom {
+    margin-top: 21%;
+    margin-bottom: 3%;
+}
+
+.tile-card-art-seat-one {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.tile-card-art-seat-two {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.tile-card-art-neutral-tile {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.tile-card-art-base-only {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+}
+
+.tile-card-name-overlay {
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    top: 1px;
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 18px;
+    color: rgb(51, 51, 51);
+    -unity-text-align: middle-center;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    white-space: normal;
+    width: auto;
+    padding: 1px 3px;
+    background-color: rgba(255, 255, 255, 0.68);
+    border-radius: 5px;
+}
+
+.tile-card-name-top {
+    top: 1px;
+    bottom: auto;
+}
+
+.tile-card-name-base {
+    top: 38%;
+    bottom: auto;
+    font-size: 18px;
+    color: rgba(51, 51, 51, 0.82);
+    background-color: rgba(255, 255, 255, 0.74);
+    -unity-font-style: bold;
+}
+
+.tile-card-name-overlay.seat-theme-one {
+    color: rgb(33, 79, 153);
+}
+
+.tile-card-name-overlay.seat-theme-two {
+    color: rgb(169, 64, 64);
+}
+
+.board-card-selected {
+    background-color: rgba(255, 245, 214, 0.12);
+}
+
+.tile-ownership-frame {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    background-color: transparent;
+    border-width: 5px;
+    border-radius: 13px;
+    border-color: transparent;
+    opacity: 1;
+}
+
+.tile-ownership-frame-on-base {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-width: 8px;
+    border-radius: 14px;
+}
+
+.tile-ownership-frame-seat-one {
+    border-color: rgba(72, 129, 218, 0.95);
+}
+
+.tile-ownership-frame-seat-two {
+    border-color: rgba(218, 82, 82, 0.95);
+}
+
+.tile-occupant-seat-one {
+    background-color: transparent;
+}
+
+.tile-occupant-seat-two {
+    background-color: transparent;
+}
+
+.tile-selection-glow {
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 232, 148, 1);
+    opacity: 0.94;
+}
+
+.tile-selection-glow-seat-one {
+    -unity-background-image-tint-color: rgba(58, 138, 255, 1);
+}
+
+.tile-selection-glow-seat-two {
+    -unity-background-image-tint-color: rgba(255, 84, 84, 1);
+}
+
+.attack-source-selected-seat-one {
+    border-width: 6px;
+    border-radius: 14px;
+    border-color: rgba(20, 91, 222, 1);
+    background-color: rgba(73, 148, 255, 0.26);
+}
+
+.attack-source-selected-seat-two {
+    border-width: 6px;
+    border-radius: 14px;
+    border-color: rgba(224, 34, 34, 1);
+    background-color: rgba(255, 105, 105, 0.25);
+}
+
+.attack-targeted-tile {
+    border-width: 6px;
+    border-color: rgba(255, 174, 0, 1);
+    background-color: rgba(255, 226, 87, 0.28);
+}
+
+.tile-lock-badge {
+    width: 38px;
+    height: 38px;
+    margin-left: 0;
+    border-width: 2px;
+    border-color: rgb(51, 51, 51);
+    border-radius: 19px;
+    background-color: rgba(255, 242, 189, 0.92);
+    -unity-background-scale-mode: scale-to-fit;
+    color: rgb(51, 51, 51);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 12px;
+    -unity-text-align: upper-right;
+    padding-top: 1px;
+    padding-right: 4px;
+}
+
+.tile-status-badge {
+    width: 38px;
+    height: 38px;
+    margin-left: 0;
+    border-width: 2px;
+    border-color: rgba(51, 51, 51, 0.82);
+    border-radius: 19px;
+    background-color: rgba(255, 255, 255, 0.86);
+    -unity-background-scale-mode: scale-to-fit;
+    color: rgb(51, 51, 51);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 12px;
+    -unity-text-align: upper-right;
+    padding-top: 1px;
+    padding-right: 4px;
+}
+
+.tile-ability-badge {
+    background-color: rgba(224, 242, 254, 0.9);
+}
+
+.tile-item-badge {
+    background-color: rgba(254, 243, 199, 0.9);
+}
+
+.tile-intent-badge {
+    position: absolute;
+    left: 50%;
+    top: 14px;
+    translate: -50% 0;
+    min-width: 110px;
+    padding: 6px 12px;
+    border-width: 3px;
+    border-color: rgb(51, 51, 51);
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: rgb(51, 51, 51);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 18px;
+    -unity-text-align: middle-center;
+}
+
+.tile-intent-badge-siege {
+    background-color: rgba(255, 235, 205, 0.98);
+    color: rgb(194, 65, 12);
+}
+
+.tile-intent-badge-city {
+    background-color: rgba(255, 228, 228, 0.98);
+    color: rgb(185, 28, 28);
+}
+
+.tile-intent-badge-struggle {
+    background-color: rgba(224, 240, 255, 0.98);
+    color: rgb(29, 78, 216);
+}
+
+.tile-intent-badge-miss {
+    background-color: rgba(245, 245, 245, 0.98);
+    color: rgb(96, 96, 96);
+}
+
+.tile-intent-badge-no-move {
+    background-color: rgba(235, 235, 235, 0.98);
+    color: rgb(76, 76, 76);
+}
+
+.attack-intent-line {
+    position: absolute;
+    height: 6px;
+    border-radius: 999px;
+    opacity: 0.95;
+}
+
+.attack-intent-line-seat-one {
+    background-color: rgba(42, 98, 195, 0.95);
+}
+
+.attack-intent-line-seat-two {
+    background-color: rgba(238, 51, 51, 0.95);
+}
+
+.attack-intent-arrowhead {
+    position: absolute;
+    translate: -50% -50%;
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 28px;
+    -unity-text-align: middle-center;
+}
+
+.attack-intent-arrow-seat-one {
+    color: rgb(42, 98, 195);
+}
+
+.attack-intent-arrow-seat-two {
+    color: rgb(238, 51, 51);
+}
+
+.move-intent-line {
+    position: absolute;
+    height: 5px;
+    border-radius: 999px;
+    background-color: rgba(245, 166, 35, 0.96);
+    opacity: 0.98;
+}
+
+.move-intent-arrowhead {
+    position: absolute;
+    translate: -50% -50%;
+    color: rgb(245, 166, 35);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 28px;
+    -unity-text-align: middle-center;
+}
+
+.attack-range-valid-tile {
+    border-width: 7px;
+    border-color: rgba(255, 183, 0, 1);
+    background-color: rgba(255, 232, 104, 0.36);
+}
+
+.attack-range-invalid-tile {
+    opacity: 0.74;
+    background-color: rgba(255, 255, 255, 0.16);
+}
+
+.attack-range-invalid-marker {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    color: rgba(180, 40, 40, 0.9);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 34px;
+    -unity-text-align: middle-center;
+}
+
+.attack-range-invalid-marker-seat-one {
+    color: rgba(42, 98, 195, 0.86);
+}
+
+.attack-range-invalid-marker-seat-two {
+    color: rgba(238, 51, 51, 0.86);
+}
+
+.tile-preview-doomed {
+    opacity: 0.64;
+}
+
+.tile-preview-doom-marker {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    color: rgba(153, 27, 27, 0.94);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 56px;
+    -unity-text-align: middle-center;
+    opacity: 1;
+}
+
+.deploy-move-target-tile {
+    border-width: 6px;
+    border-color: rgba(53, 131, 224, 0.92);
+    background-color: rgba(126, 185, 255, 0.2);
+}
+
+.deploy-move-target-seat-one {
+    border-color: rgba(30, 104, 234, 1);
+    background-color: rgba(83, 156, 255, 0.26);
+}
+
+.deploy-move-target-seat-two {
+    border-color: rgba(233, 46, 46, 1);
+    background-color: rgba(255, 109, 109, 0.24);
+}
+
+.deploy-move-optional-tile {
+    border-width: 6px;
+    border-color: rgba(52, 168, 83, 0.82);
+    background-color: rgba(144, 238, 173, 0.2);
+}
+
+.deploy-move-optional-seat-one {
+    border-color: rgba(77, 145, 255, 0.9);
+    background-color: rgba(77, 145, 255, 0.16);
+}
+
+.deploy-move-optional-seat-two {
+    border-color: rgba(240, 98, 98, 0.9);
+    background-color: rgba(240, 98, 98, 0.16);
+}
+
+.selected-hand-target-tile {
+    border-width: 8px;
+    background-color: rgba(255, 244, 171, 0.3);
+}
+
+.selected-hand-target-seat-one {
+    border-color: rgba(28, 118, 255, 1);
+    background-color: rgba(82, 166, 255, 0.34);
+}
+
+.selected-hand-target-seat-two {
+    border-color: rgba(237, 53, 53, 1);
+    background-color: rgba(255, 116, 116, 0.34);
+}
+
+.deploy-move-extended-tile {
+    background-color: rgba(144, 238, 173, 0.24);
+}
+
+.tile-floating-popup {
+    opacity: 0;
+    scale: 0.72;
+    translate: 0 18px;
+    transition-property: opacity, scale, translate;
+    transition-duration: 0.22s;
+    transition-timing-function: ease-out-back;
+}
+
+.tile-floating-popup-active {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+}
+
+.tile-floating-damage {
+    position: absolute;
+    min-width: 94px;
+    padding: 8px 14px;
+    border-width: 3px;
+    border-color: rgb(51, 51, 51);
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.96);
+    color: rgb(238, 51, 51);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 30px;
+    -unity-text-align: middle-center;
+}
+
+.tile-floating-status {
+    position: absolute;
+    min-width: 110px;
+    padding: 8px 16px;
+    border-width: 3px;
+    border-color: rgb(51, 51, 51);
+    border-radius: 12px;
+    background-color: rgba(255, 248, 220, 0.96);
+    color: rgb(51, 51, 51);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 24px;
+    -unity-text-align: middle-center;
+}
+
+.tile-floating-action {
+    position: absolute;
+    min-width: 132px;
+    padding: 8px 18px;
+    border-width: 3px;
+    border-color: rgb(51, 51, 51);
+    border-radius: 12px;
+    background-color: rgba(255, 241, 182, 0.98);
+    color: rgb(51, 51, 51);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 26px;
+    -unity-text-align: middle-center;
+}
+
 .right-btn-stack {
     flex-direction: column;
-    width: 150px;
-    height: 290px;
+    width: 140px;
+    height: 342px;
     justify-content: space-between;
-    margin-bottom: 10px; /* Align baseline */
+    margin-bottom: 10px;
     flex-shrink: 0;
 }
 
 .stack-btn {
     width: 100%;
     height: 86px;
-    flex-direction: row; /* Lay out number next to the word */
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
+    transition-property: scale, translate;
+    transition-duration: 0.16s;
 }
 
 .discard-pile {
-    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
     -unity-background-scale-mode: stretch-to-fill;
-    -unity-background-image-tint-color: rgba(135, 135, 135, 0.95); /* Grey wobbly card base */
+    -unity-background-image-tint-color: rgba(135, 135, 135, 0.95);
 }
 
 .deck-pile {
-    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
     -unity-background-scale-mode: stretch-to-fill;
-    -unity-background-image-tint-color: rgba(60, 110, 200, 0.95); /* Blue wobbly card base */
+    -unity-background-image-tint-color: rgba(60, 110, 200, 0.95);
 }
 
 .done-btn {
-    background-image: url("project://database/Assets/UI/Sprites/paper_scrap_button.png");
+    background-image: url("project://database/Assets/UI/Sprites/paper_scrap_button.png?fileID=-8829611685367023878&guid=b54b938001224db4c95b5661f0dd607a&type=3#paper_scrap_button_0");
     -unity-background-scale-mode: stretch-to-fill;
-    -unity-background-image-tint-color: #ffd27f; /* Sandy cardboard done button */
+    -unity-background-image-tint-color: rgb(255, 210, 127);
     border-width: 0;
     background-color: transparent;
     padding: 0;
 }
 
+.done-btn.primary-action-ready {
+    -unity-background-image-tint-color: rgb(184, 230, 160);
+}
+
+.done-btn.primary-action-attack {
+    -unity-background-image-tint-color: rgb(255, 210, 127);
+}
+
 .stack-btn-text {
-    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
     -unity-font-definition: initial;
-    font-size: 28px; /* Bigger count number */
-    color: #ffffff;
+    font-size: 28px;
+    color: rgb(255, 255, 255);
     -unity-text-align: center;
-    margin-right: 8px; /* Spacing between count and label */
+    margin-right: 8px;
 }
 
 .done-text {
-    color: #EE3333; /* Red DONE! text */
+    color: rgb(158, 74, 35);
     font-size: 26px;
     rotate: -4deg;
 }
 
+.done-btn.primary-action-ready .done-text {
+    color: rgb(45, 108, 42);
+}
+
+.done-btn.primary-action-attack .done-text {
+    color: rgb(176, 75, 31);
+}
+
 .stack-btn-subtext {
-    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
     -unity-font-definition: initial;
-    font-size: 20px; /* Bigger label text */
-    color: #ffffff;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
     -unity-text-align: center;
 }
 
-/* Selected card highlight */
 .card-thumbnail.highlighted {
-    translate: 0 -25px; /* Stays translated up */
-    scale: 1.15; /* Stays scaled up */
-    z-index: 90; /* Keeps it layered above neighboring cards */
+    translate: 0 -25px;
+    scale: 1.15;
+    z-index: 90;
 }
 
-/* Wobbly green glow outline behind the card base texture */
 .card-glow-outline {
     position: absolute;
     top: -8px;
     left: -8px;
     right: -8px;
     bottom: -8px;
-    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
     -unity-background-scale-mode: stretch-to-fill;
-    -unity-background-image-tint-color: #33FF57; /* Neon green wobbly shadow! */
-    display: none; /* Hidden by default */
+    -unity-background-image-tint-color: rgb(51, 255, 87);
+    display: none;
 }
 
-/* Activate glow when card has the highlighted class */
 .card-thumbnail.highlighted .card-glow-outline {
     display: flex;
 }
 
-/* White wobbly card body layer rendered on top of outline */
 .card-body {
     width: 100%;
     height: 100%;
-    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
     -unity-background-scale-mode: stretch-to-fill;
     padding: 12px;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     border-radius: 12px;
-    overflow: hidden; /* Clips card art inside rounded corners */
+    overflow: hidden;
 }
 
-/* Hand Card Stats Bar at the bottom of the card body */
 .card-stats-bar {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
-    padding: 2px 8px;
-    background-color: rgba(240, 240, 240, 0.7); /* Soft notebook scrap overlay */
-    border-top-width: 2px;
-    border-top-color: #333333;
+    height: 36px;
+    padding: 2px 0;
+    background-color: rgba(240, 240, 240, 0.7);
+    border-top-width: 0;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     align-items: center;
-    margin-top: 4px;
+    margin-top: auto;
+    flex-shrink: 0;
+    position: relative;
 }
 
 .card-stat-text {
-    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf");
+    -unity-font: url("project://database/Assets/UI/Fonts/ArchitectsDaughter-Regular.ttf?fileID=12800000&guid=518c30485137fe843810d48fcadf99e9&type=3#ArchitectsDaughter-Regular");
     -unity-font-definition: initial;
-    font-size: 22px;
+    font-size: 18px;
+    width: 58px;
+    min-width: 58px;
+    height: 32px;
+    -unity-font-style: bold;
+    white-space: nowrap;
+}
+
+.card-stats-bar .hp-text {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    translate: 0 -50%;
+    -unity-text-align: middle-left;
+}
+
+.card-stats-bar .at-text {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    translate: 0 -50%;
+    -unity-text-align: middle-right;
 }
 
 .hp-text {
-    color: #EE3333; /* Red HP */
+    color: rgb(238, 51, 51);
 }
 
 .at-text {
-    color: #333333; /* Dark Grey Attack */
+    color: rgb(51, 51, 51);
 }
 
-/* Centering board content vertically between top and bottom HUDs when fitting, scroll when overflowing */
 .board-scroll-container .unity-scroll-view__content-container {
+    min-width: 100%;
     min-height: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 140px;
+    padding-bottom: 180px;
 }
 
-/* Zoom & Focus Controls Panel (Positioned Absolute on Left of Bottom HUD) */
+.board-scroll-container .unity-scroll-view__content-and-vertical-scroll-container,
+.board-scroll-container .unity-scroll-view__content-viewport {
+    width: 100%;
+    margin-right: 0;
+    padding-right: 0;
+}
+
 .zoom-panel-right {
     position: absolute;
-    left: 0px; /* Aligns perfectly with Heart stability badge above it */
-    bottom: 30px;
+    left: 36px;
+    bottom: 10px;
     flex-direction: column;
     align-items: center;
-    background-color: transparent; /* Remove outer border box completely */
-    padding: 0px;
+    background-color: transparent;
+    padding: 0;
     z-index: 100;
     transition-property: bottom;
     transition-duration: 0.35s;
@@ -657,14 +2902,14 @@
     width: 58px;
     height: 58px;
     margin: 6px 0;
-    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf");
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
     -unity-font-definition: initial;
     font-size: 36px;
-    color: #333333;
-    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png");
-    -unity-background-image-tint-color: #ffd27f; /* Sandy yellow tint */
+    color: rgb(51, 51, 51);
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-image-tint-color: rgb(255, 210, 127);
     background-color: transparent;
-    border-width: 0px; /* Use wobbly texture borders */
+    border-width: 0;
     padding: 0;
     justify-content: center;
     align-items: center;
@@ -672,13 +2917,18 @@
     transition-duration: 0.15s;
 }
 
+.stack-btn.stack-btn-bounce {
+    scale: 1.12 1.12;
+    translate: 0 -8px;
+}
+
 .zoom-btn:hover {
-    -unity-background-image-tint-color: #ffffff; /* White hover outline tint */
+    -unity-background-image-tint-color: rgb(255, 255, 255);
     scale: 1.08;
 }
 
 .zoom-btn:active {
-    -unity-background-image-tint-color: #ffd27f;
+    -unity-background-image-tint-color: rgb(255, 210, 127);
     scale: 0.95;
 }
 
@@ -691,21 +2941,551 @@
     width: 22px;
     height: 22px;
     border-width: 3px;
-    border-color: #333333;
+    border-color: rgb(51, 51, 51);
     border-radius: 4px;
     background-color: transparent;
 }
 
-/* Play Area Wrapper - Constrains absolute right zoom panel vertically relative to board height */
 .play-area-wrapper {
     flex-grow: 1;
     width: 100%;
-    position: relative; /* Anchors absolute children vertically inside play area limits */
+    position: relative;
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
-/* Enable smooth height collapse and slide transition for card hand controls row */
+.mobile-dock-toggle {
+    position: absolute;
+    top: 50%;
+    width: 44px;
+    height: 132px;
+    translate: 0 -50%;
+    background-image: url("project://database/Assets/UI/Sprites/postit_note_yellow.png?fileID=-7798892719133297459&guid=43bc4a074f4aeb148989bd1aaa481925&type=3#postit_note_yellow_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 246, 212, 0.96);
+    border-width: 0;
+    color: rgb(61, 61, 61);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 32px;
+    -unity-text-align: middle-center;
+    display: none;
+    z-index: 320;
+}
+
+.mobile-dock-toggle-left {
+    left: -6px;
+}
+
+.mobile-dock-toggle-right {
+    right: -6px;
+}
+
+.mobile-dock-scrim {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(37, 33, 29, 0.28);
+    display: none;
+    z-index: 250;
+}
+
+.mobile-dock-panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 78%;
+    min-width: 78%;
+    max-width: 78%;
+    height: 100%;
+    display: none;
+    z-index: 260;
+}
+
+.mobile-dock-panel-left {
+    left: 0;
+}
+
+.mobile-dock-panel-right {
+    right: 0;
+}
+
+.mobile-dock-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.mobile-dock-header {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 10px;
+    height: 46px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+}
+
+.mobile-dock-header-text {
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 30px;
+    color: rgb(56, 52, 47);
+}
+
+.mobile-dock-close {
+    width: 48px;
+    height: 42px;
+    background-image: url("project://database/Assets/UI/Sprites/card_base_wobbly.png?fileID=6304497287864835111&guid=ff140ca78719a8648a67101695d8f646&type=3#card_base_wobbly_0");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.94);
+    border-width: 0;
+    color: rgb(188, 42, 42);
+    -unity-font: url("project://database/Assets/UI/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=f0368353c79b6aa4fa9c7d47021796c4&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 20px;
+}
+
+.mobile-dock-panel .desktop-dock-panel {
+    flex-grow: 1;
+    height: 100%;
+    padding-top: 68px;
+}
+
+.mobile-dock-panel .desktop-dock-kicker {
+    font-size: 20px;
+}
+
+.mobile-dock-panel .desktop-dock-title {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.mobile-dock-panel .desktop-dock-copy {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.mobile-dock-panel .desktop-dock-chip {
+    min-height: 52px;
+    margin-bottom: 8px;
+}
+
+.mobile-dock-panel .desktop-dock-chip-text {
+    font-size: 20px;
+}
+
+.play-area-wrapper.mobile-dock-enabled .mobile-dock-toggle {
+    display: flex;
+}
+
+.gameplay-shell.desktop-dock-layout .center-stage-content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-board-column {
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: auto;
+    min-width: 0;
+    max-width: 760px;
+    height: 100%;
+    margin-right: 14px;
+}
+
+.gameplay-shell.desktop-dock-layout .top-hud-bar {
+    height: 74px;
+    max-height: 74px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.gameplay-shell.desktop-dock-layout .stat-badge {
+    min-width: 76px;
+    padding: 4px 6px;
+}
+
+.gameplay-shell.desktop-dock-layout .stat-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 4px;
+}
+
+.gameplay-shell.desktop-dock-layout .stat-label {
+    font-size: 17px;
+}
+
+.gameplay-shell.desktop-dock-layout .treasury-income-label {
+    font-size: 14px;
+    margin-left: 3px;
+}
+
+.gameplay-shell.desktop-dock-layout .round-badge-shell {
+    width: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.gameplay-shell.desktop-dock-layout .round-badge-image {
+    width: 22px;
+    height: 22px;
+}
+
+.gameplay-shell.desktop-dock-layout .city-header-group {
+    padding: 2px 4px;
+}
+
+.gameplay-shell.desktop-dock-layout .nameplate {
+    width: 260px;
+    min-height: 46px;
+}
+
+.gameplay-shell.desktop-dock-layout .nameplate-inline-row {
+    min-height: 34px;
+}
+
+.gameplay-shell.desktop-dock-layout .nameplate-text {
+    font-size: 20px;
+}
+
+.gameplay-shell.desktop-dock-layout .nameplate-side-slot {
+    width: 48px;
+    min-width: 48px;
+    height: 32px;
+}
+
+.gameplay-shell.desktop-dock-layout .city-state-badge {
+    min-width: 46px;
+    padding: 2px 4px;
+    margin-left: 2px;
+}
+
+.gameplay-shell.desktop-dock-layout .city-state-text {
+    font-size: 10px;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+    height: 100%;
+    flex-shrink: 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.gameplay-shell.desktop-dock-layout .bottom-hud-container {
+    max-height: 150px;
+}
+
+.gameplay-shell.desktop-dock-layout .ability-preview-shell {
+    height: 58px;
+    min-height: 58px;
+    max-height: 58px;
+    margin-bottom: 7px;
+    padding: 7px 14px;
+}
+
+.gameplay-shell.desktop-dock-layout .ability-preview-text,
+.gameplay-shell.desktop-dock-layout .ability-preview-shell.ability-preview-status .ability-preview-text,
+.gameplay-shell.desktop-dock-layout .ability-preview-shell.ability-preview-round .ability-preview-text,
+.gameplay-shell.desktop-dock-layout .ability-preview-shell.ability-preview-ability .ability-preview-text {
+    font-size: 17px;
+}
+
+.gameplay-shell.desktop-dock-layout .stats-row {
+    margin-bottom: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.gameplay-shell.desktop-dock-layout .phase-timer-group {
+    min-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.gameplay-shell.desktop-dock-layout .play-area-wrapper {
+    margin-top: 5px;
+    margin-bottom: 7px;
+}
+
+.gameplay-shell.desktop-dock-layout .board-scroll-container .unity-scroll-view__content-container {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .zoom-panel-right {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: 210px;
+    height: 32px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .zoom-btn {
+    width: 26px;
+    height: 26px;
+    margin: 0 2px;
+    font-size: 16px;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .square-focus-icon {
+    width: 15px;
+    height: 15px;
+    border-width: 2px;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .controls-row {
+    flex-grow: 1;
+    width: 210px;
+    height: 0;
+    min-height: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .war-shop-dock {
+    width: 128px;
+    height: 104px;
+    margin: 0 0 5px 0;
+    align-self: center;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .hand-carousel-scroll {
+    width: 210px;
+    height: 0;
+    min-height: 0;
+    flex-grow: 1;
+    margin: 0 0 5px 0;
+    overflow: hidden;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .hand-carousel-scroll .unity-scroll-view__content-viewport {
+    overflow: hidden;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .hand-carousel-scroll .unity-scroll-view__content-container {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    overflow: visible;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .card-thumbnail {
+    width: 210px;
+    height: 318px;
+    margin-bottom: -132px;
+    flex-shrink: 0;
+    scale: 0.56 0.56;
+    align-self: center;
+    transform-origin: 50% 0%;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .card-thumbnail:hover,
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .card-thumbnail.highlighted {
+    scale: 0.58 0.58;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .right-btn-stack {
+    width: 104px;
+    height: 154px;
+    margin: 0;
+    flex-shrink: 0;
+    align-self: center;
+    align-items: center;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .stack-btn {
+    width: 104px;
+    height: 45px;
+    align-self: center;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .stack-btn-text {
+    font-size: 20px;
+    margin-right: 4px;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .done-text {
+    font-size: 18px;
+}
+
+.gameplay-shell.desktop-dock-layout .desktop-control-strip .stack-btn-subtext {
+    font-size: 13px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-hp-text {
+    font-size: 13px;
+    border-width: 1px;
+    border-radius: 3px;
+    padding: 0 4px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-card-name-overlay {
+    font-size: 11px;
+    padding: 0 2px;
+    border-radius: 4px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-card-name-base {
+    font-size: 11px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-card-art-window {
+    width: 64%;
+    height: 56%;
+    margin-left: 18%;
+    margin-right: 18%;
+    margin-top: 22%;
+    margin-bottom: 16%;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-card-art-align-bottom {
+    margin-top: 29%;
+    margin-bottom: 10%;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-stat-text-left,
+.gameplay-shell.desktop-dock-layout .tile-stat-text-right {
+    font-size: 12px;
+    padding: 0 2px;
+    border-radius: 3px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-stat-text-right {
+    bottom: 14px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-stats-bar-bottom {
+    left: 5px;
+    right: 5px;
+    bottom: 3px;
+    min-height: 36px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-stat-right-cluster {
+    right: 3px;
+    bottom: 3px;
+    gap: 2px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-lock-badge,
+.gameplay-shell.desktop-dock-layout .tile-status-badge {
+    width: 22px;
+    height: 22px;
+    border-width: 1px;
+    border-radius: 11px;
+    font-size: 8px;
+    padding-top: 0;
+    padding-right: 2px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-intent-badge {
+    top: 6px;
+    min-width: 58px;
+    padding: 2px 6px;
+    border-width: 1px;
+    border-radius: 8px;
+    font-size: 10px;
+}
+
+.gameplay-shell.desktop-dock-layout .attack-intent-line {
+    height: 4px;
+}
+
+.gameplay-shell.desktop-dock-layout .move-intent-line {
+    height: 4px;
+}
+
+.gameplay-shell.desktop-dock-layout .attack-intent-arrowhead,
+.gameplay-shell.desktop-dock-layout .move-intent-arrowhead {
+    font-size: 16px;
+}
+
+.gameplay-shell.desktop-dock-layout .attack-range-invalid-marker {
+    font-size: 20px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-preview-doom-marker {
+    font-size: 30px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-floating-damage {
+    min-width: 50px;
+    padding: 3px 7px;
+    border-width: 2px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-floating-status {
+    min-width: 58px;
+    padding: 3px 8px;
+    border-width: 2px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-floating-action {
+    min-width: 68px;
+    padding: 3px 8px;
+    border-width: 2px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-ownership-frame {
+    border-width: 3px;
+    border-radius: 10px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-ownership-frame-on-base {
+    border-width: 5px;
+    border-radius: 11px;
+}
+
+.gameplay-shell.desktop-dock-layout .tile-selection-glow {
+    top: -7px;
+    left: -7px;
+    right: -7px;
+    bottom: -7px;
+}
+
 .controls-row {
     transition-property: height, opacity, translate;
     transition-duration: 0.35s;
@@ -715,29 +3495,27 @@
     overflow: visible;
 }
 
-/* When hidden in focus mode, animate collapse downward instead of instantly vanishing */
 .controls-row.hud-hidden {
-    display: flex; /* Keep flex active to allow height and translate transitions to play */
-    height: 0px;
+    display: flex;
+    height: 0;
     opacity: 0;
     translate: 0 350px;
-    overflow: hidden; /* Clips card thumbnails as the height shrinks down */
+    overflow: hidden;
 }
 
-/* Swoosh pull-in spring transition for newly deployed board cards (Mac-like ease) */
 .tile-deployed-swoosh {
     transition-property: scale, translate, opacity, rotate;
     transition-duration: 0.45s;
-    transition-timing-function: ease-out-back; /* Springy slide & pull bounce */
+    transition-timing-function: ease-out-back;
     scale: 0.1;
     opacity: 0;
     rotate: -12deg;
-    translate: 0 80px; /* Slide up from bottom */
+    translate: 0 80px;
 }
 
 .tile-deployed-active {
     scale: 1;
     opacity: 1;
-    rotate: 0deg;
+    rotate: 0;
     translate: 0 0;
 }

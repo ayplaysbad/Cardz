@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Scribble Wars | Pre-Alpha Access</title>
+    <link rel="manifest" href="manifest.webmanifest?v=20260708133414">
+    <meta name="theme-color" content="#f4ead6">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Scribble Wars">
+    <link rel="apple-touch-icon" href="pwa-icon-192.svg?v=20260708133414">
+    <script>
+      window.CardzPWA = (function () {
+        let deferredPrompt = null;
+
+        function canRegisterServiceWorker() {
+          return 'serviceWorker' in navigator
+            && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+        }
+
+        window.addEventListener('beforeinstallprompt', function (event) {
+          event.preventDefault();
+          deferredPrompt = event;
+        });
+
+        window.addEventListener('appinstalled', function () {
+          deferredPrompt = null;
+        });
+
+        async function requestInstall() {
+          const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+          const isIos = /iphone|ipad|ipod/i.test(window.navigator.userAgent || '');
+
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            try {
+              await deferredPrompt.userChoice;
+            } catch (error) {
+              console.warn('[ScribbleWarsPWA] Install prompt failed.', error);
+            }
+            return true;
+          }
+
+          if (isIos && !isStandalone) {
+            window.alert('To install Scribble Wars on iPhone or iPad, tap Share and then Add to Home Screen.');
+            return false;
+          }
+
+          if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            window.alert('Install requires HTTPS on mobile browsers. Serve this WebGL build over HTTPS and try again.');
+            return false;
+          }
+
+          window.alert('Install is not ready yet in this browser. Try again after the page finishes loading, or use the browser menu to install/add to home screen.');
+          return false;
+        }
+
+        async function registerServiceWorker() {
+          if (!canRegisterServiceWorker()) {
+            return;
+          }
+
+          try {
+            await navigator.serviceWorker.register('./sw.js?v=20260708133414');
+          } catch (error) {
+            console.warn('[ScribbleWarsPWA] Service worker registration failed.', error);
+          }
+        }
+
+        registerServiceWorker();
+
+        return {
+          requestInstall: requestInstall
+        };
+      })();
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f7f0df;
+        --paper-strong: #fffaf0;
+        --ink: #2e2a24;
+        --blue: #7aa7ff;
+        --red: #ef8e8e;
+        --gold: #efcf62;
+        --shadow: rgba(46, 42, 36, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(122, 167, 255, 0.18), transparent 24%),
+          radial-gradient(circle at bottom right, rgba(239, 142, 142, 0.16), transparent 28%),
+          linear-gradient(180deg, #fdf7ea 0%, #f2ebdb 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 18px;
+      }
+
+      .panel {
+        width: min(100%, 560px);
+        background: rgba(255, 250, 240, 0.96);
+        border: 2px solid rgba(46, 42, 36, 0.22);
+        border-radius: 26px;
+        box-shadow: 0 26px 60px var(--shadow);
+        padding: 28px 24px 24px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .panel::before {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border: 1px dashed rgba(46, 42, 36, 0.16);
+        border-radius: 20px;
+        pointer-events: none;
+      }
+
+      .logo-wrap {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 12px;
+      }
+
+      .logo-wrap img {
+        width: min(100%, 300px);
+        height: auto;
+      }
+
+      .eyebrow {
+        text-align: center;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #7f6a48;
+        margin-bottom: 8px;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        text-align: center;
+        font-size: clamp(2rem, 6vw, 3rem);
+        line-height: 1;
+      }
+
+      .lead {
+        margin: 0 auto 18px;
+        max-width: 34rem;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .status {
+        border-radius: 16px;
+        padding: 12px 14px;
+        font-size: 0.96rem;
+        line-height: 1.4;
+        margin-bottom: 14px;
+        border: 1px solid rgba(46, 42, 36, 0.14);
+        background: rgba(122, 167, 255, 0.11);
+        display: none;
+      }
+
+      .status.show {
+        display: block;
+      }
+
+      .status.admin {
+        background: rgba(239, 207, 98, 0.2);
+      }
+
+      .status.error {
+        background: rgba(239, 142, 142, 0.16);
+        color: #8c3030;
+      }
+
+      form {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      label {
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      input[type="password"] {
+        width: 100%;
+        border: 2px solid rgba(46, 42, 36, 0.18);
+        border-radius: 14px;
+        padding: 14px 16px;
+        font-size: 1rem;
+        background: #fffdf8;
+        color: var(--ink);
+      }
+
+      input[type="password"]:focus {
+        outline: none;
+        border-color: rgba(122, 167, 255, 0.9);
+        box-shadow: 0 0 0 4px rgba(122, 167, 255, 0.18);
+      }
+
+      button {
+        appearance: none;
+        border: 0;
+        border-radius: 14px;
+        padding: 14px 16px;
+        font-size: 0.98rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition: transform 0.12s ease, box-shadow 0.12s ease;
+        box-shadow: 0 8px 18px rgba(46, 42, 36, 0.12);
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+      }
+
+      button:active {
+        transform: translateY(1px);
+      }
+
+      .primary {
+        background: #7aa7ff;
+        color: #10254d;
+      }
+
+      .secondary {
+        background: #f0dfaa;
+        color: #554316;
+      }
+
+      .ghost {
+        background: rgba(46, 42, 36, 0.08);
+        color: var(--ink);
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .divider {
+        height: 1px;
+        background: rgba(46, 42, 36, 0.12);
+        margin: 18px 0 14px;
+      }
+
+      .admin-panel {
+        display: none;
+      }
+
+      .admin-panel.show {
+        display: block;
+      }
+
+      .toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 14px;
+        border: 1px solid rgba(46, 42, 36, 0.14);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.75);
+        margin-top: 10px;
+      }
+
+      .toggle input {
+        width: 20px;
+        height: 20px;
+      }
+
+      .footnote {
+        margin-top: 16px;
+        text-align: center;
+        font-size: 0.84rem;
+        color: rgba(46, 42, 36, 0.78);
+      }
+
+      @media (max-width: 540px) {
+        .panel {
+          padding: 24px 18px 20px;
+        }
+
+        .row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="panel">
+      <div class="logo-wrap">
+        <img src="./landing-logo.png?v=20260708133414" alt="Scribble Wars logo">
+      </div>
+      <div class="eyebrow">Pre-Alpha Testing</div>
+      <h1>Scribble Wars</h1>
+      <p class="lead">This build is only for invited testers. Enter the tester password to reach the current game build, or use admin access to manage local tester access on this browser.</p>
+
+      <div id="status-box" class="status"></div>
+
+      <form id="tester-form">
+        <label for="tester-password">Tester Password</label>
+        <input id="tester-password" type="password" autocomplete="current-password" placeholder="Enter tester password">
+        <button class="primary" type="submit">Enter Test Build</button>
+      </form>
+
+      <div class="row">
+        <button id="continue-button" class="secondary" type="button" hidden>Continue To Game</button>
+        <button id="clear-button" class="ghost" type="button" hidden>Clear Stored Access</button>
+      </div>
+
+      <div class="divider"></div>
+
+      <button id="admin-toggle" class="ghost" type="button">Admin Access</button>
+
+      <section id="admin-panel" class="admin-panel">
+        <form id="admin-form">
+          <label for="admin-password">Admin Password</label>
+          <input id="admin-password" type="password" autocomplete="current-password" placeholder="Enter admin password">
+          <button class="secondary" type="submit">Unlock Admin</button>
+        </form>
+
+        <div id="admin-tools" hidden>
+          <div class="toggle">
+            <input id="public-toggle" type="checkbox">
+            <label for="public-toggle" style="margin:0; text-transform:none; letter-spacing:0; font-size:0.96rem; font-weight:700;">Enable public tester access on this browser</label>
+          </div>
+          <div class="row" style="margin-top:10px;">
+            <button id="admin-continue" class="primary" type="button">Open Admin Game View</button>
+            <button id="admin-clear" class="ghost" type="button">Clear Admin Access</button>
+          </div>
+        </div>
+      </section>
+
+      <p class="footnote">Access is stored locally in your browser until you clear it. The actual game build is still protected if someone opens the game page directly.</p>
+    </main>
+
+    <script>
+      (function () {
+        const ACCESS_KEY = 'scribblewars-prealpha-access';
+        const ACCESS_TOKEN = 'granted::PlaysBadScribble123';
+        const ACCESS_PASSWORD = 'PlaysBadScribble123';
+        const ADMIN_KEY = 'scribblewars-admin-access';
+        const ADMIN_TOKEN = 'granted::PlaysBadAdmin321';
+        const ADMIN_PASSWORD = 'PlaysBadAdmin321';
+        const PUBLIC_KEY = 'scribblewars-public-access';
+
+        function getStoredValue(key) {
+          try {
+            return sessionStorage.getItem(key) || localStorage.getItem(key);
+          } catch (error) {
+            return null;
+          }
+        }
+
+        function setStoredValue(key, value, persistent) {
+          try {
+            (persistent ? localStorage : sessionStorage).setItem(key, value);
+          } catch (error) {
+          }
+        }
+
+        function removeStoredValue(key) {
+          try {
+            sessionStorage.removeItem(key);
+            localStorage.removeItem(key);
+          } catch (error) {
+          }
+        }
+
+        function hasTesterAccess() {
+          return getStoredValue(ACCESS_KEY) === ACCESS_TOKEN;
+        }
+
+        function hasAdminAccess() {
+          return getStoredValue(ADMIN_KEY) === ADMIN_TOKEN;
+        }
+
+        function publicAccessEnabled() {
+          return getStoredValue(PUBLIC_KEY) === '1';
+        }
+
+        function navigateToGame(adminMode) {
+          window.location.href = adminMode ? './game.html?admin=1' : './game.html';
+        }
+
+        window.addEventListener('DOMContentLoaded', function () {
+          const testerForm = document.getElementById('tester-form');
+          const testerPassword = document.getElementById('tester-password');
+          const continueButton = document.getElementById('continue-button');
+          const clearButton = document.getElementById('clear-button');
+          const statusBox = document.getElementById('status-box');
+          const adminToggle = document.getElementById('admin-toggle');
+          const adminPanel = document.getElementById('admin-panel');
+          const adminForm = document.getElementById('admin-form');
+          const adminPassword = document.getElementById('admin-password');
+          const adminTools = document.getElementById('admin-tools');
+          const publicToggle = document.getElementById('public-toggle');
+          const adminContinue = document.getElementById('admin-continue');
+          const adminClear = document.getElementById('admin-clear');
+
+          function showStatus(message, kind) {
+            statusBox.textContent = message;
+            statusBox.className = 'status show' + (kind ? ' ' + kind : '');
+          }
+
+          function hideStatus() {
+            statusBox.textContent = '';
+            statusBox.className = 'status';
+          }
+
+          function refreshAccessState() {
+            const tester = hasTesterAccess();
+            const admin = hasAdminAccess();
+            const publicAccess = publicAccessEnabled();
+            const canEnter = tester || admin || publicAccess;
+
+            continueButton.hidden = !canEnter;
+            clearButton.hidden = !canEnter;
+            adminTools.hidden = !admin;
+            adminPanel.classList.toggle('show', adminPanel.dataset.open === '1');
+            publicToggle.checked = publicAccess;
+
+            if (admin) {
+              showStatus(publicAccess
+                ? 'Admin access unlocked. Public tester access is currently enabled on this browser.'
+                : 'Admin access unlocked. Public tester access is currently disabled on this browser.', 'admin');
+              continueButton.textContent = 'Continue To Tester View';
+            } else if (tester) {
+              showStatus('Tester access unlocked on this browser. Continue whenever you are ready.');
+              continueButton.textContent = 'Continue To Game';
+            } else if (publicAccess) {
+              showStatus('Public tester access is enabled on this browser by an admin.');
+              continueButton.textContent = 'Continue To Game';
+            } else {
+              hideStatus();
+            }
+          }
+
+          testerForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if ((testerPassword.value || '').trim() !== ACCESS_PASSWORD) {
+              showStatus('That tester password is not correct.', 'error');
+              return;
+            }
+
+            setStoredValue(ACCESS_KEY, ACCESS_TOKEN, true);
+            testerPassword.value = '';
+            refreshAccessState();
+          });
+
+          continueButton.addEventListener('click', function () {
+            navigateToGame(false);
+          });
+
+          clearButton.addEventListener('click', function () {
+            removeStoredValue(ACCESS_KEY);
+            removeStoredValue(PUBLIC_KEY);
+            removeStoredValue(ADMIN_KEY);
+            refreshAccessState();
+          });
+
+          adminToggle.addEventListener('click', function () {
+            adminPanel.dataset.open = adminPanel.dataset.open === '1' ? '0' : '1';
+            refreshAccessState();
+          });
+
+          adminForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if ((adminPassword.value || '').trim() !== ADMIN_PASSWORD) {
+              showStatus('That admin password is not correct.', 'error');
+              return;
+            }
+
+            setStoredValue(ADMIN_KEY, ADMIN_TOKEN, true);
+            adminPassword.value = '';
+            adminPanel.dataset.open = '1';
+            refreshAccessState();
+          });
+
+          publicToggle.addEventListener('change', function () {
+            if (!hasAdminAccess()) {
+              publicToggle.checked = false;
+              return;
+            }
+
+            if (publicToggle.checked) {
+              setStoredValue(PUBLIC_KEY, '1', true);
+            } else {
+              removeStoredValue(PUBLIC_KEY);
+            }
+
+            refreshAccessState();
+          });
+
+          adminContinue.addEventListener('click', function () {
+            navigateToGame(true);
+          });
+
+          adminClear.addEventListener('click', function () {
+            removeStoredValue(ADMIN_KEY);
+            removeStoredValue(PUBLIC_KEY);
+            refreshAccessState();
+          });
+
+          refreshAccessState();
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -28,8 +28,13 @@ namespace LastFreeCity.UI.Editor
 
                 if (importer != null)
                 {
-                    // Check if it's already set to Sprite type
-                    if (importer.textureType != TextureImporterType.Sprite)
+                    bool shouldBeSprite = importer.textureType != TextureImporterType.Sprite;
+                    bool shouldBeSingleSprite = ShouldForceSingleSprite(path)
+                        && importer.spriteImportMode != SpriteImportMode.Single;
+                    bool shouldDisableMipmaps = importer.mipmapEnabled;
+                    bool shouldUseBilinear = importer.filterMode != FilterMode.Bilinear;
+
+                    if (shouldBeSprite || shouldBeSingleSprite || shouldDisableMipmaps || shouldUseBilinear)
                     {
                         importer.textureType = TextureImporterType.Sprite;
                         importer.spriteImportMode = SpriteImportMode.Single;
@@ -48,6 +53,19 @@ namespace LastFreeCity.UI.Editor
             {
                 AssetDatabase.Refresh();
             }
+        }
+
+        private static bool ShouldForceSingleSprite(string assetPath)
+        {
+            if (string.IsNullOrWhiteSpace(assetPath))
+            {
+                return false;
+            }
+
+            string normalizedPath = assetPath.Replace('\\', '/');
+            return normalizedPath.StartsWith("Assets/UI/Sprites/character/", System.StringComparison.OrdinalIgnoreCase)
+                || normalizedPath.StartsWith("Assets/UI/Sprites/infrastructure/", System.StringComparison.OrdinalIgnoreCase)
+                || normalizedPath.StartsWith("Assets/UI/Sprites/abilities/", System.StringComparison.OrdinalIgnoreCase);
         }
     }
 }
